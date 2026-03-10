@@ -955,7 +955,7 @@ const ScrollToTopButton = () => {
       animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.8 }}
       transition={{ duration: 0.3 }}
       onClick={scrollToTop}
-      className={`fixed bottom-6 right-6 z-40 w-12 h-12 bg-primary text-white rounded-full shadow-hover flex items-center justify-center hover:bg-primary-600 transition-all duration-300 ${
+      className={`fixed bottom-20 right-6 z-40 w-12 h-12 bg-primary text-white rounded-full shadow-hover flex items-center justify-center hover:bg-primary-600 transition-all duration-300 ${
         isVisible ? "pointer-events-auto" : "pointer-events-none"
       }`}
       data-testid="scroll-to-top-button"
