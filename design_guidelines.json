@@ -1,0 +1,189 @@
+{
+  "design_system": {
+    "typography": {
+      "font_family": {
+        "sans": ["Roboto Flex", "sans-serif"],
+        "script": ["Meie Script", "cursive"],
+        "body": ["Roboto Flex", "sans-serif"]
+      },
+      "imports": [
+        "https://fonts.googleapis.com/css2?family=Meie+Script&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap"
+      ],
+      "scale": {
+        "h1": "text-4xl md:text-6xl font-light tracking-tight",
+        "h2": "text-3xl md:text-5xl font-light tracking-tight",
+        "h3": "text-2xl md:text-3xl font-normal",
+        "body": "text-base md:text-lg leading-relaxed font-light",
+        "script_accent": "font-script text-3xl md:text-4xl text-secondary"
+      }
+    },
+    "colors": {
+      "palette": {
+        "primary": {
+          "DEFAULT": "#58355E",
+          "foreground": "#FFFFFF",
+          "50": "#F4EFF5",
+          "100": "#E8DEEB",
+          "200": "#D1BDD6",
+          "300": "#BA9CC2",
+          "400": "#A37BAD",
+          "500": "#8C5A99",
+          "600": "#754880",
+          "700": "#58355E",
+          "800": "#422847",
+          "900": "#2C1B30"
+        },
+        "secondary": {
+          "DEFAULT": "#C4D6B0",
+          "foreground": "#2D1B30",
+          "50": "#F9FCF7",
+          "100": "#F2F6F0",
+          "200": "#E6EDE3",
+          "300": "#D9E3D5",
+          "400": "#CCD9C8",
+          "500": "#C4D6B0",
+          "600": "#A3B88F",
+          "700": "#82996E",
+          "800": "#617A4D",
+          "900": "#405233"
+        },
+        "background": "#FDFCF8",
+        "foreground": "#2D1B30",
+        "muted": "#F2F6F0",
+        "border": "#E6EDE3"
+      },
+      "gradients": {
+        "hero": "linear-gradient(135deg, #FDFCF8 0%, #F2F6F0 100%)",
+        "card": "linear-gradient(180deg, #FFFFFF 0%, #F9FCF7 100%)"
+      }
+    },
+    "spacing": {
+      "container": "max-w-7xl mx-auto px-6 md:px-12",
+      "section_padding": "py-20 md:py-32",
+      "element_gap": "gap-8 md:gap-12"
+    },
+    "visual_enhancers": {
+      "radius": {
+        "default": "rounded-2xl",
+        "button": "rounded-full",
+        "card": "rounded-3xl"
+      },
+      "shadows": {
+        "soft": "0 10px 40px -10px rgba(88, 53, 94, 0.08)",
+        "hover": "0 20px 50px -12px rgba(88, 53, 94, 0.15)"
+      },
+      "glass": "bg-white/80 backdrop-blur-md border border-white/20"
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-primary text-white hover:bg-primary/90 rounded-full px-8 py-6 text-lg transition-all duration-300 shadow-soft hover:shadow-hover hover:-translate-y-1",
+      "secondary": "bg-secondary/20 text-primary hover:bg-secondary/30 rounded-full px-8 py-6 text-lg transition-all duration-300",
+      "outline": "border-2 border-primary text-primary hover:bg-primary hover:text-white rounded-full px-8 py-6 text-lg transition-all duration-300"
+    },
+    "cards": {
+      "service": "bg-white p-8 rounded-3xl border border-secondary/20 hover:border-secondary/50 transition-all duration-500 hover:shadow-soft group relative overflow-hidden",
+      "feature": "bg-muted/50 p-6 rounded-2xl border border-transparent hover:border-secondary/30 transition-all duration-300"
+    },
+    "inputs": {
+      "default": "bg-white border-secondary/30 focus:border-primary focus:ring-1 focus:ring-primary/20 rounded-xl h-12 px-4 transition-all duration-300"
+    }
+  },
+  "layout_structure": {
+    "header": {
+      "type": "sticky",
+      "style": "glass",
+      "height": "h-20",
+      "elements": ["Logo (Left)", "Nav Links (Center)", "CTA (Right)"]
+    },
+    "hero": {
+      "layout": "split_asymmetrical",
+      "left": "Text Content + CTA",
+      "right": "Profile Image with organic shape mask",
+      "background": "Soft gradient + subtle noise texture"
+    },
+    "sections": [
+      {
+        "id": "about",
+        "title": "Mi presento",
+        "layout": "image_left_text_right",
+        "background": "white"
+      },
+      {
+        "id": "method",
+        "title": "Metodo di lavoro",
+        "layout": "centered_text_with_icons",
+        "background": "muted"
+      },
+      {
+        "id": "areas",
+        "title": "Aree di intervento",
+        "layout": "bento_grid_7_items",
+        "background": "white"
+      },
+      {
+        "id": "process",
+        "title": "Il percorso",
+        "layout": "vertical_timeline",
+        "background": "muted"
+      },
+      {
+        "id": "spaces",
+        "title": "Lo spazio terapeutico",
+        "layout": "masonry_gallery",
+        "background": "white"
+      },
+      {
+        "id": "locations",
+        "title": "Dove ricevo",
+        "layout": "split_cards_with_maps",
+        "background": "primary_dark"
+      },
+      {
+        "id": "contact",
+        "title": "Contatti",
+        "layout": "centered_form",
+        "background": "white"
+      }
+    ]
+  },
+  "assets": {
+    "images": {
+      "logo": "https://customer-assets.emergentagent.com/job_equilibrio-psiche/artifacts/ngjyckwn_Logo%20ADC.png",
+      "profile": "https://customer-assets.emergentagent.com/job_equilibrio-psiche/artifacts/6hyxzpyx_6621fa4f-17a9-46da-b45e-8b785f81235e.jpg",
+      "studio_fiumicino": "https://customer-assets.emergentagent.com/job_equilibrio-psiche/artifacts/9shqidqf_fiumicino-canale-2.webp",
+      "studio_ostia_bono": "https://customer-assets.emergentagent.com/job_equilibrio-psiche/artifacts/176wlws3_ostia-bono-2.webp",
+      "studio_ostia_simonetti": "https://customer-assets.emergentagent.com/job_equilibrio-psiche/artifacts/uem5oenc_ostia-simonetti-1.webp",
+      "texture_calm": "https://images.unsplash.com/photo-1613490537763-677d76dbf666?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDF8MHwxfHNlYXJjaHwxfHxjYWxtaW5nJTIwYWJzdHJhY3QlMjBuYXR1cmUlMjB0ZXh0dXJlJTIwc2FnZSUyMGdyZWVuJTIwcHVycGxlfGVufDB8fHx8MTc3MzE2MTExM3ww&ixlib=rb-4.1.0&q=85",
+      "texture_flower": "https://images.unsplash.com/photo-1613490538141-179af2cfe91a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDF8MHwxfHNlYXJjaHwyfHxjYWxtaW5nJTIwYWJzdHJhY3QlMjBuYXR1cmUlMjB0ZXh0dXJlJTIwc2FnZSUyMGdyZWVuJTIwcHVycGxlfGVufDB8fHx8MTc3MzE2MTExM3ww&ixlib=rb-4.1.0&q=85"
+    }
+  },
+  "motion": {
+    "library": "framer-motion",
+    "settings": {
+      "initial": { "opacity": 0, "y": 20 },
+      "animate": { "opacity": 1, "y": 0 },
+      "transition": { "duration": 0.6, "ease": [0.22, 1, 0.36, 1] }
+    },
+    "stagger": 0.1
+  },
+  "instructions_to_main_agent": [
+    "1. SETUP: Install 'lucide-react' for icons, 'framer-motion' for animations, 'clsx' and 'tailwind-merge' for utils.",
+    "2. THEME: Update tailwind.config.js with the provided color palette. Use CSS variables for flexibility.",
+    "3. FONTS: Add the Google Fonts import to index.css immediately.",
+    "4. COMPONENTS: Use shadcn/ui for the Contact Form (Input, Textarea, Checkbox, Button) and Toast (Sonner). Build other sections as custom React components using Tailwind.",
+    "5. IMAGES: Use the 'profile' image in the Hero section. Use 'studio' images in the 'Spaces' section. Use 'texture_calm' as a subtle background overlay for the 'Method' section.",
+    "6. MOBILE: Ensure the 'Areas of Intervention' grid collapses to 1 column on mobile.",
+    "7. NAV: Create a sticky navbar that changes background opacity on scroll.",
+    "8. FOOTER: Make it deep purple (primary-900) with white text for contrast.",
+    "9. ACCESSIBILITY: Ensure text contrast on the sage green backgrounds. Use darker text colors if needed.",
+    "10. DATA-TESTID: Add data-testid attributes to all interactive elements (buttons, links, inputs)."
+  ],
+  "universal_guidelines": [
+    "Avoid generic centered layouts. Use asymmetry.",
+    "Use 2-3x more spacing than typical designs.",
+    "Every interaction needs micro-animations.",
+    "Do not use 'Inter' for headings. Use 'Roboto Flex'.",
+    "Use 'Meie Script' sparingly for emotional accents only."
+  ]
+}
