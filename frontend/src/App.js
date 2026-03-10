@@ -174,16 +174,29 @@ const Navigation = () => {
     { label: "Contatti", href: "#contact" },
   ];
 
+  const scrollToSection = (e, href) => {
+    e.preventDefault();
+    const element = document.querySelector(href);
+    if (element) {
+      const offsetTop = element.offsetTop - 80;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth"
+      });
+    }
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <header
       data-testid="navigation-header"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "glass shadow-soft py-3" : "py-5 bg-transparent"
+        isScrolled ? "glass shadow-soft py-3" : "py-5 bg-white/90 backdrop-blur-sm"
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-        <a href="#hero" data-testid="nav-logo" className="flex items-center gap-3">
-          <img src={ASSETS.logo} alt="ADC Logo" className="h-12 w-auto" />
+        <a href="#hero" onClick={(e) => scrollToSection(e, "#hero")} data-testid="nav-logo" className="flex items-center gap-3">
+          <img src={ASSETS.logo} alt="ADC Logo" className="h-12 w-12 rounded-full object-cover" />
         </a>
 
         {/* Desktop Navigation */}
@@ -192,8 +205,9 @@ const Navigation = () => {
             <a
               key={link.href}
               href={link.href}
+              onClick={(e) => scrollToSection(e, link.href)}
               data-testid={`nav-link-${link.href.replace("#", "")}`}
-              className="nav-link text-sm font-medium text-primary-800 hover:text-primary transition-colors"
+              className="nav-link text-sm font-medium text-primary-800 hover:text-primary transition-colors cursor-pointer"
             >
               {link.label}
             </a>
@@ -201,12 +215,12 @@ const Navigation = () => {
         </div>
 
         <a
-          href={`tel:${CONTACT.phone}`}
+          href="#contact"
+          onClick={(e) => scrollToSection(e, "#contact")}
           data-testid="nav-cta-call"
-          className="hidden lg:flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-primary-600 transition-all duration-300 hover:shadow-hover hover:-translate-y-0.5"
+          className="hidden lg:flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-primary-600 transition-all duration-300 hover:shadow-hover hover:-translate-y-0.5 cursor-pointer"
         >
-          <Phone size={16} />
-          Chiama ora
+          Prenota
         </a>
 
         {/* Mobile Menu Button */}
@@ -233,20 +247,20 @@ const Navigation = () => {
               <a
                 key={link.href}
                 href={link.href}
+                onClick={(e) => scrollToSection(e, link.href)}
                 data-testid={`mobile-nav-${link.href.replace("#", "")}`}
-                className="text-primary-800 font-medium py-2 border-b border-secondary/20"
-                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-primary-800 font-medium py-2 border-b border-secondary/20 cursor-pointer"
               >
                 {link.label}
               </a>
             ))}
             <a
-              href={`tel:${CONTACT.phone}`}
+              href="#contact"
+              onClick={(e) => scrollToSection(e, "#contact")}
               data-testid="mobile-cta-call"
-              className="flex items-center justify-center gap-2 bg-primary text-white px-6 py-3 rounded-full font-medium mt-2"
+              className="flex items-center justify-center gap-2 bg-primary text-white px-6 py-3 rounded-full font-medium mt-2 cursor-pointer"
             >
-              <Phone size={16} />
-              Chiama ora
+              Prenota
             </a>
           </div>
         </motion.div>
