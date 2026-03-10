@@ -1,0 +1,98 @@
+{
+  "summary": {
+    "tests_run": 6,
+    "tests_passed": 6,
+    "success_rate": 100.0
+  },
+  "results": [
+    {
+      "test_name": "Health Check",
+      "endpoint": "api/health",
+      "method": "GET",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": {
+        "status": "healthy",
+        "service": "psicologa-website"
+      },
+      "error": null
+    },
+    {
+      "test_name": "Root API",
+      "endpoint": "api/",
+      "method": "GET",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": {
+        "message": "Sito web Dott.ssa Alexandra Diana Ciontu - Psicologa Clinica"
+      },
+      "error": null
+    },
+    {
+      "test_name": "Contact Form Submission",
+      "endpoint": "api/contact",
+      "method": "POST",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": {
+        "id": "ef09f2af-f249-41b4-870a-9ea1f0295eb4",
+        "nome": "Test User",
+        "email": "test@example.com",
+        "telefono": "1234567890",
+        "messaggio": "Questo \u00e8 un messaggio di test per verificare il funzionamento del form di contatto.",
+        "timestamp": "2026-03-10T16:57:16.340353Z",
+        "letto": false
+      },
+      "error": null
+    },
+    {
+      "test_name": "Contact Form Validation (Privacy)",
+      "endpoint": "api/contact",
+      "method": "POST",
+      "expected_status": 400,
+      "actual_status": 400,
+      "success": true,
+      "response_data": {
+        "detail": "\u00c8 necessario accettare la privacy policy"
+      },
+      "error": null
+    },
+    {
+      "test_name": "Get Contact Messages",
+      "endpoint": "api/contact",
+      "method": "GET",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": [
+        {
+          "id": "ef09f2af-f249-41b4-870a-9ea1f0295eb4",
+          "nome": "Test User",
+          "email": "test@example.com",
+          "telefono": "1234567890",
+          "messaggio": "Questo \u00e8 un messaggio di test per verificare il funzionamento del form di contatto.",
+          "timestamp": "2026-03-10T16:57:16.340353Z",
+          "letto": false
+        }
+      ],
+      "error": null
+    },
+    {
+      "test_name": "Status Check",
+      "endpoint": "api/status",
+      "method": "POST",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": {
+        "id": "d303181d-88c1-480f-808d-ef2ec408412b",
+        "client_name": "test_client",
+        "timestamp": "2026-03-10T16:57:16.814061Z"
+      },
+      "error": null
+    }
+  ]
+}
