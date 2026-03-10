@@ -1062,6 +1062,7 @@ function App() {
         <ContactSection />
       </main>
       <Footer />
+      <ScrollToTopButton />
     </div>
   );
 }
