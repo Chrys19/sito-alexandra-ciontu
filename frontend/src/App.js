@@ -300,17 +300,23 @@ const HeroSection = () => {
             </blockquote>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href={`tel:${CONTACT.phone}`}
+                href={`https://wa.me/39${CONTACT.whatsapp}?text=${encodeURIComponent("Prenota un primo colloquio")}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 data-testid="hero-cta-primary"
                 className="btn-glow inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-primary-600 transition-all duration-300 shadow-soft hover:shadow-hover"
               >
-                <Phone size={20} />
+                <MessageCircle size={20} />
                 Prenota un primo contatto
               </a>
               <a
                 href="#about"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.querySelector("#about")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                }}
                 data-testid="hero-cta-secondary"
-                className="inline-flex items-center justify-center gap-2 bg-secondary/20 text-primary px-8 py-4 rounded-full text-lg font-medium hover:bg-secondary/30 transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 bg-secondary/20 text-primary px-8 py-4 rounded-full text-lg font-medium hover:bg-secondary/30 transition-all duration-300 cursor-pointer"
               >
                 Scopri il mio approccio
                 <ChevronDown size={20} />
@@ -350,7 +356,14 @@ const HeroSection = () => {
         transition={{ delay: 1.5 }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden md:block"
       >
-        <a href="#about" className="flex flex-col items-center text-primary-400 hover:text-primary transition-colors">
+        <a 
+          href="#about" 
+          onClick={(e) => {
+            e.preventDefault();
+            document.querySelector("#about")?.scrollIntoView({ behavior: "smooth", block: "start" });
+          }}
+          className="flex flex-col items-center text-primary-400 hover:text-primary transition-colors cursor-pointer"
+        >
           <span className="text-xs uppercase tracking-widest mb-2">Scorri</span>
           <ChevronDown size={20} className="animate-bounce" />
         </a>
