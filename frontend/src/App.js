@@ -617,6 +617,85 @@ const SpacesSection = () => {
   );
 };
 
+// Location Card with Image Carousel
+const LocationCard = ({ location, index }) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % location.images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + location.images.length) % location.images.length);
+  };
+
+  return (
+    <motion.div
+      variants={fadeInUp}
+      className="bg-white/10 backdrop-blur-sm p-6 lg:p-8 rounded-3xl border border-white/20 hover:bg-white/15 transition-all duration-500"
+      data-testid={`location-card-${index}`}
+    >
+      <div className="relative aspect-video rounded-2xl overflow-hidden mb-6 group">
+        <img
+          src={location.images[currentImageIndex]}
+          alt={`${location.name} - Foto ${currentImageIndex + 1}`}
+          className="w-full h-full object-cover transition-transform duration-500"
+        />
+        
+        {/* Navigation arrows */}
+        {location.images.length > 1 && (
+          <>
+            <button
+              onClick={prevImage}
+              className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/80 hover:bg-white rounded-full flex items-center justify-center text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              data-testid={`location-prev-${index}`}
+            >
+              <ChevronLeft size={18} />
+            </button>
+            <button
+              onClick={nextImage}
+              className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/80 hover:bg-white rounded-full flex items-center justify-center text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              data-testid={`location-next-${index}`}
+            >
+              <ChevronRight size={18} />
+            </button>
+            
+            {/* Dots indicator */}
+            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+              {location.images.map((_, imgIndex) => (
+                <button
+                  key={imgIndex}
+                  onClick={() => setCurrentImageIndex(imgIndex)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    imgIndex === currentImageIndex ? "bg-white w-4" : "bg-white/50"
+                  }`}
+                />
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+      
+      <h3 className="text-lg font-medium text-white mb-2">{location.name}</h3>
+      <p className="text-white/70 text-sm mb-4 flex items-start gap-2">
+        <MapPin size={16} className="flex-shrink-0 mt-1" />
+        {location.address}
+      </p>
+      <a
+        href={location.maps}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-testid={`location-maps-${index}`}
+        className="inline-flex items-center gap-2 text-secondary hover:text-white transition-colors text-sm font-medium"
+      >
+        <MapPin size={16} />
+        Apri in Google Maps
+        <ArrowRight size={14} />
+      </a>
+    </motion.div>
+  );
+};
+
 // Locations Section
 const LocationsSection = () => {
   return (
@@ -633,36 +712,7 @@ const LocationsSection = () => {
 
         <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
           {LOCATIONS.map((location, index) => (
-            <motion.div
-              key={index}
-              variants={fadeInUp}
-              className="bg-white/10 backdrop-blur-sm p-6 lg:p-8 rounded-3xl border border-white/20 hover:bg-white/15 transition-all duration-500"
-              data-testid={`location-card-${index}`}
-            >
-              <div className="aspect-video rounded-2xl overflow-hidden mb-6">
-                <img
-                  src={location.image}
-                  alt={location.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-lg font-medium text-white mb-2">{location.name}</h3>
-              <p className="text-white/70 text-sm mb-4 flex items-start gap-2">
-                <MapPin size={16} className="flex-shrink-0 mt-1" />
-                {location.address}
-              </p>
-              <a
-                href={location.maps}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-testid={`location-maps-${index}`}
-                className="inline-flex items-center gap-2 text-secondary hover:text-white transition-colors text-sm font-medium"
-              >
-                <MapPin size={16} />
-                Apri in Google Maps
-                <ArrowRight size={14} />
-              </a>
-            </motion.div>
+            <LocationCard key={index} location={location} index={index} />
           ))}
         </div>
       </div>
