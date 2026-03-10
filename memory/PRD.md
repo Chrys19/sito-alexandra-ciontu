@@ -19,49 +19,48 @@ Creare un sito vetrina premium, elegante, rassicurante e altamente professionale
 - SEO locale (psicologa Ostia, Fiumicino)
 
 ## What's Been Implemented ✅
-**Data: 2025-01-XX (Primo rilascio MVP)**
 
-### Backend
-- FastAPI server con endpoint `/api/contact` per form
-- Modello ContactMessage con validazione Pydantic
-- Salvataggio messaggi in MongoDB
-- Health check endpoint
+### Iterazione 1 - MVP (Completato)
+- Struttura base del sito con tutte le sezioni
+- Backend con endpoint /api/contact
+- Design responsive
 
-### Frontend
-- ✅ Hero section con foto profilo, CTA buttons
-- ✅ Sezione "Mi presento" con immagine studio
-- ✅ Sezione "Metodo di lavoro" con 3 cards
-- ✅ Sezione "Aree di intervento" con 7 cards
-- ✅ Sezione "Come funziona il percorso" con timeline 4 step
-- ✅ Sezione "Lo spazio terapeutico" con gallery 3 studi
-- ✅ Sezione "Sedi" con 3 location cards + link Google Maps
-- ✅ Sezione "Contatti" con info + form funzionante
-- ✅ Footer professionale
-- ✅ Navigation sticky con glass effect
-- ✅ Mobile responsive con hamburger menu
-- ✅ Animazioni fluide con Framer Motion
-- ✅ Toast notifications con Sonner
+### Iterazione 2 - Modifiche Utente (Completato - Data odierna)
+- ✅ **Logo tondo** nel navigation e footer (rounded-full)
+- ✅ **Menu sticky** sempre visibile e funzionante con smooth scroll
+- ✅ **CTA "Prenota un primo contatto"** → link WhatsApp con messaggio "Prenota un primo colloquio"
+- ✅ **Sezione "Mi presento"** senza foto studio (solo testo centrato)
+- ✅ **Icona GraduationCap** per "Orientamento scolastico e professionale"
+- ✅ **Sezione "Dove ricevo"** con carousel 2 foto per ogni studio
+- ✅ **Bottone "Prenota"** nel menu → rimanda a sezione contatti
+- ✅ **Bottone scroll-to-top** in basso a destra
+- ✅ **Footer** con logo visibile (non invertito)
 
 ### Assets Utilizzati
-- Logo: ADC Logo fornito dal cliente
+- Logo: ADC Logo fornito dal cliente (visualizzato tondo)
 - Foto profilo: fornita dal cliente
-- Foto studi: 3 immagini fornite dal cliente (Ostia Simonetti, Fiumicino, Ostia Bono)
+- Foto studi (2 per ogni sede):
+  - Ostia Simonetti: 2 foto
+  - Fiumicino: 2 foto
+  - Ostia Bono: 2 foto
 
 ### Contatti Implementati
 - Telefono: 3275569910
 - Email: alexandra.ciontu.psi@gmail.com
-- WhatsApp: 3275569910
+- WhatsApp: 3275569910 (con messaggio precompilato)
 
 ## Prioritized Backlog
 
 ### P0 (Critical) - COMPLETATO ✅
-- [x] Hero section
-- [x] Navigation responsive
-- [x] Form contatto funzionante
 - [x] Tutte le sezioni richieste
+- [x] Form contatto funzionante
+- [x] Mobile responsive
+- [x] Logo tondo
+- [x] CTA WhatsApp
+- [x] Carousel sedi
+- [x] Scroll-to-top button
 
 ### P1 (High Priority)
-- [ ] Aggiungere seconda foto per ogni studio (richiesta utente)
 - [ ] Implementare email notification al submit del form (Resend/SendGrid)
 - [ ] Meta tags SEO ottimizzati
 
@@ -78,6 +77,6 @@ Creare un sito vetrina premium, elegante, rassicurante e altamente professionale
 - [ ] Multi-lingua (IT/EN/RO)
 
 ## Next Tasks
-1. Aggiungere immagini aggiuntive degli studi quando fornite
-2. Configurare invio email automatico per nuovi messaggi
+1. Configurare invio email automatico per nuovi messaggi
+2. Aggiungere privacy policy page per GDPR
 3. Ottimizzare meta tags per SEO locale
