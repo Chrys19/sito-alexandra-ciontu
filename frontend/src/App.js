@@ -925,6 +925,47 @@ const ContactSection = () => {
   );
 };
 
+// Scroll to Top Button
+const ScrollToTopButton = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.pageYOffset > 400) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", toggleVisibility);
+    return () => window.removeEventListener("scroll", toggleVisibility);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
+
+  return (
+    <motion.button
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.8 }}
+      transition={{ duration: 0.3 }}
+      onClick={scrollToTop}
+      className={`fixed bottom-6 right-6 z-40 w-12 h-12 bg-primary text-white rounded-full shadow-hover flex items-center justify-center hover:bg-primary-600 transition-all duration-300 ${
+        isVisible ? "pointer-events-auto" : "pointer-events-none"
+      }`}
+      data-testid="scroll-to-top-button"
+      aria-label="Torna all'inizio"
+    >
+      <ArrowUp size={20} />
+    </motion.button>
+  );
+};
+
 // Footer
 const Footer = () => {
   return (
@@ -933,7 +974,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           {/* Logo & Info */}
           <div>
-            <img src={ASSETS.logo} alt="ADC Logo" className="h-16 w-auto mb-6 brightness-0 invert" />
+            <img src={ASSETS.logo} alt="ADC Logo" className="h-16 w-16 rounded-full object-cover mb-6" />
             <p className="text-white/70 leading-relaxed">
               Dott.ssa Alexandra Diana Ciontu<br />
               Psicologa Clinica<br />
@@ -949,7 +990,14 @@ const Footer = () => {
                 <li key={index}>
                   <a
                     href={`#${["about", "method", "areas", "process", "locations", "contact"][index]}`}
-                    className="text-white/70 hover:text-white transition-colors"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const section = document.querySelector(`#${["about", "method", "areas", "process", "locations", "contact"][index]}`);
+                      if (section) {
+                        section.scrollIntoView({ behavior: "smooth", block: "start" });
+                      }
+                    }}
+                    className="text-white/70 hover:text-white transition-colors cursor-pointer"
                     data-testid={`footer-link-${index}`}
                   >
                     {link}
