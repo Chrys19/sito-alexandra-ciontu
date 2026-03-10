@@ -3,7 +3,7 @@ import "@/App.css";
 import axios from "axios";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Phone, Mail, MapPin, Menu, X, ChevronDown, Heart, Users, Brain, Compass, Clock, Shield, Baby, MessageCircle, ArrowRight, Check } from "lucide-react";
+import { Phone, Mail, MapPin, Menu, X, ChevronDown, Heart, Users, Brain, Compass, GraduationCap, Shield, Baby, MessageCircle, ArrowRight, ArrowUp, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -29,25 +29,34 @@ const CONTACT = {
   whatsapp: "3275569910",
 };
 
-// Locations data
+// Locations data with multiple images
 const LOCATIONS = [
   {
     name: "Studio Privato - Ostia Simonetti",
     address: "Via Diego Simonetti 29, 00122, Ostia",
     maps: "https://maps.google.com/?q=Via+Diego+Simonetti+29+00122+Ostia",
-    image: ASSETS.studioOstiaSimonetti,
+    images: [
+      ASSETS.studioOstiaSimonetti,
+      "https://customer-assets.emergentagent.com/job_equilibrio-psiche/artifacts/op0vm3a3_ostia-simonetti-2.webp"
+    ],
   },
   {
     name: "Associazione L'Albero della Vita",
     address: "Via del Canale 18, 00054, Fiumicino",
     maps: "https://maps.google.com/?q=Via+del+Canale+18+00054+Fiumicino",
-    image: ASSETS.studioFiumicino,
+    images: [
+      ASSETS.studioFiumicino,
+      "https://customer-assets.emergentagent.com/job_equilibrio-psiche/artifacts/mu7p4mms_fiumicino-canale-1.webp"
+    ],
   },
   {
     name: "Associazione Prinea",
     address: "Viale Ammiraglio del Bono 63, 00122, Ostia",
     maps: "https://maps.google.com/?q=Viale+Ammiraglio+del+Bono+63+00122+Ostia",
-    image: ASSETS.studioOstiaBono,
+    images: [
+      ASSETS.studioOstiaBono,
+      "https://customer-assets.emergentagent.com/job_equilibrio-psiche/artifacts/v27xt6dz_ostia-bono-1.jpg"
+    ],
   },
 ];
 
@@ -79,7 +88,7 @@ const AREAS = [
     description: "Cambiamenti, scelte, separazioni, passaggi di vita – quando serve ritrovare direzione.",
   },
   {
-    icon: Clock,
+    icon: GraduationCap,
     title: "Orientamento scolastico e professionale",
     description: "Per scegliere con maggiore consapevolezza e ridurre confusione e pressione.",
   },
