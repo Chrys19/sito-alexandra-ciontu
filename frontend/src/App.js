@@ -588,20 +588,20 @@ const ProcessSection = () => {
 const SpacesSection = () => {
   return (
     <AnimatedSection className="section-padding bg-white" id="spaces">
-      <div className="max-w-7xl mx-auto px-6 md:px-12" data-testid="spaces-section">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <motion.span variants={fadeInUp} className="text-secondary-700 font-medium tracking-wide uppercase text-sm">
+      <div className="max-w-7xl mx-auto px-4 md:px-12" data-testid="spaces-section">
+        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16">
+          <motion.span variants={fadeInUp} className="text-secondary-700 font-medium tracking-wide uppercase text-xs md:text-sm">
             Dove ti accolgo
           </motion.span>
-          <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl lg:text-5xl font-light text-primary-800 mt-3 mb-6">
+          <motion.h2 variants={fadeInUp} className="text-2xl md:text-4xl lg:text-5xl font-light text-primary-800 mt-2 md:mt-3 mb-4 md:mb-6">
             Lo spazio terapeutico
           </motion.h2>
-          <motion.p variants={fadeInUp} className="text-primary-600 leading-relaxed">
+          <motion.p variants={fadeInUp} className="text-primary-600 leading-relaxed text-sm md:text-base px-2">
             Ricevo su appuntamento dal lunedì al venerdì in diversi spazi terapeutici, anche all'interno di contesti multidisciplinari in collaborazione con altre figure specialistiche (nutrizionisti, ostetriche, osteopati, psicologi, psicoterapeuti).
           </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
           {[
             { image: ASSETS.studioOstiaSimonetti, title: "Studio Ostia - Via Simonetti" },
             { image: ASSETS.studioFiumicino, title: "Fiumicino - L'Albero della Vita" },
@@ -610,7 +610,7 @@ const SpacesSection = () => {
             <motion.div
               key={index}
               variants={fadeInUp}
-              className="group relative rounded-3xl overflow-hidden shadow-soft hover:shadow-hover transition-shadow duration-500"
+              className="group relative rounded-2xl md:rounded-3xl overflow-hidden shadow-soft hover:shadow-hover transition-shadow duration-500"
               data-testid={`studio-image-${index}`}
             >
               <div className="aspect-[4/3] overflow-hidden">
@@ -621,14 +621,14 @@ const SpacesSection = () => {
                 />
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-primary-900/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                <p className="font-medium">{studio.title}</p>
+              <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                <p className="font-medium text-sm md:text-base">{studio.title}</p>
               </div>
             </motion.div>
           ))}
         </div>
 
-        <motion.p variants={fadeInUp} className="text-center text-primary-600 mt-12 max-w-2xl mx-auto">
+        <motion.p variants={fadeInUp} className="text-center text-primary-600 mt-8 md:mt-12 max-w-2xl mx-auto text-sm md:text-base px-2">
           Sono ambienti <strong className="text-primary">accoglienti e riservati</strong> pensati per garantire un setting sicuro e professionale.
         </motion.p>
       </div>
