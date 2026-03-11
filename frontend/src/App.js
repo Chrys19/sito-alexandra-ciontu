@@ -783,46 +783,46 @@ const ContactSection = () => {
 
   return (
     <AnimatedSection className="section-padding bg-white" id="contact">
-      <div className="max-w-7xl mx-auto px-6 md:px-12" data-testid="contact-section">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
+      <div className="max-w-7xl mx-auto px-4 md:px-12" data-testid="contact-section">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-20">
           {/* Contact Info */}
           <motion.div variants={fadeInUp}>
-            <span className="text-secondary-700 font-medium tracking-wide uppercase text-sm">
+            <span className="text-secondary-700 font-medium tracking-wide uppercase text-xs md:text-sm">
               Parliamone
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-primary-800 mt-3 mb-6">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-light text-primary-800 mt-2 md:mt-3 mb-4 md:mb-6">
               Contattami
             </h2>
-            <p className="text-primary-600 leading-relaxed mb-10">
+            <p className="text-primary-600 leading-relaxed mb-8 md:mb-10 text-sm md:text-base">
               Il primo contatto telefonico è gratuito e non vincolante. Puoi scrivermi o chiamarmi per qualsiasi informazione o per prenotare un appuntamento.
             </p>
 
-            <div className="space-y-6">
+            <div className="space-y-4 md:space-y-6">
               <a
                 href={`tel:${CONTACT.phone}`}
                 data-testid="contact-phone"
-                className="flex items-center gap-4 group"
+                className="flex items-center gap-3 md:gap-4 group"
               >
-                <div className="w-14 h-14 bg-secondary/30 rounded-2xl flex items-center justify-center group-hover:bg-secondary/50 transition-colors">
-                  <Phone className="w-6 h-6 text-primary" />
+                <div className="w-12 h-12 md:w-14 md:h-14 bg-secondary/30 rounded-xl md:rounded-2xl flex items-center justify-center group-hover:bg-secondary/50 transition-colors flex-shrink-0">
+                  <Phone className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm text-primary-500">Telefono</p>
-                  <p className="text-lg font-medium text-primary-800">{CONTACT.phone}</p>
+                  <p className="text-xs md:text-sm text-primary-500">Telefono</p>
+                  <p className="text-base md:text-lg font-medium text-primary-800">{CONTACT.phone}</p>
                 </div>
               </a>
 
               <a
                 href={`mailto:${CONTACT.email}`}
                 data-testid="contact-email"
-                className="flex items-center gap-4 group"
+                className="flex items-center gap-3 md:gap-4 group"
               >
-                <div className="w-14 h-14 bg-secondary/30 rounded-2xl flex items-center justify-center group-hover:bg-secondary/50 transition-colors">
-                  <Mail className="w-6 h-6 text-primary" />
+                <div className="w-12 h-12 md:w-14 md:h-14 bg-secondary/30 rounded-xl md:rounded-2xl flex items-center justify-center group-hover:bg-secondary/50 transition-colors flex-shrink-0">
+                  <Mail className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                 </div>
-                <div>
-                  <p className="text-sm text-primary-500">Email</p>
-                  <p className="text-lg font-medium text-primary-800">{CONTACT.email}</p>
+                <div className="min-w-0">
+                  <p className="text-xs md:text-sm text-primary-500">Email</p>
+                  <p className="text-sm md:text-lg font-medium text-primary-800 break-all">{CONTACT.email}</p>
                 </div>
               </a>
 
@@ -831,14 +831,14 @@ const ContactSection = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 data-testid="contact-whatsapp"
-                className="flex items-center gap-4 group"
+                className="flex items-center gap-3 md:gap-4 group"
               >
-                <div className="w-14 h-14 bg-secondary/30 rounded-2xl flex items-center justify-center group-hover:bg-secondary/50 transition-colors">
-                  <MessageCircle className="w-6 h-6 text-primary" />
+                <div className="w-12 h-12 md:w-14 md:h-14 bg-secondary/30 rounded-xl md:rounded-2xl flex items-center justify-center group-hover:bg-secondary/50 transition-colors flex-shrink-0">
+                  <MessageCircle className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm text-primary-500">WhatsApp</p>
-                  <p className="text-lg font-medium text-primary-800">Scrivimi su WhatsApp</p>
+                  <p className="text-xs md:text-sm text-primary-500">WhatsApp</p>
+                  <p className="text-base md:text-lg font-medium text-primary-800">Scrivimi su WhatsApp</p>
                 </div>
               </a>
             </div>
@@ -846,8 +846,8 @@ const ContactSection = () => {
 
           {/* Contact Form */}
           <motion.div variants={fadeInUp}>
-            <form onSubmit={handleSubmit} className="bg-muted p-8 lg:p-10 rounded-3xl" data-testid="contact-form">
-              <div className="space-y-6">
+            <form onSubmit={handleSubmit} className="bg-muted p-5 md:p-8 lg:p-10 rounded-2xl md:rounded-3xl" data-testid="contact-form">
+              <div className="space-y-4 md:space-y-6">
                 <div>
                   <label htmlFor="nome" className="block text-sm font-medium text-primary-700 mb-2">
                     Nome e Cognome *
@@ -858,13 +858,13 @@ const ContactSection = () => {
                     required
                     value={formData.nome}
                     onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
-                    className="bg-white border-secondary/30 focus:border-primary h-12 rounded-xl"
+                    className="bg-white border-secondary/30 focus:border-primary h-11 md:h-12 rounded-xl text-base"
                     placeholder="Il tuo nome"
                     data-testid="form-input-nome"
                   />
                 </div>
 
-                <div className="grid sm:grid-cols-2 gap-6">
+                <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-primary-700 mb-2">
                       Email *
@@ -875,7 +875,7 @@ const ContactSection = () => {
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="bg-white border-secondary/30 focus:border-primary h-12 rounded-xl"
+                      className="bg-white border-secondary/30 focus:border-primary h-11 md:h-12 rounded-xl text-base"
                       placeholder="La tua email"
                       data-testid="form-input-email"
                     />
@@ -890,7 +890,7 @@ const ContactSection = () => {
                       required
                       value={formData.telefono}
                       onChange={(e) => setFormData({ ...formData, telefono: e.target.value })}
-                      className="bg-white border-secondary/30 focus:border-primary h-12 rounded-xl"
+                      className="bg-white border-secondary/30 focus:border-primary h-11 md:h-12 rounded-xl text-base"
                       placeholder="Il tuo numero"
                       data-testid="form-input-telefono"
                     />
@@ -904,10 +904,10 @@ const ContactSection = () => {
                   <Textarea
                     id="messaggio"
                     required
-                    rows={5}
+                    rows={4}
                     value={formData.messaggio}
                     onChange={(e) => setFormData({ ...formData, messaggio: e.target.value })}
-                    className="bg-white border-secondary/30 focus:border-primary rounded-xl resize-none"
+                    className="bg-white border-secondary/30 focus:border-primary rounded-xl resize-none text-base"
                     placeholder="Descrivi brevemente il motivo del contatto..."
                     data-testid="form-input-messaggio"
                   />
@@ -921,15 +921,15 @@ const ContactSection = () => {
                     className="mt-1"
                     data-testid="form-checkbox-privacy"
                   />
-                  <label htmlFor="privacy" className="text-sm text-primary-600 leading-relaxed">
-                    Ho letto e accetto la privacy policy. I dati inseriti saranno trattati nel rispetto della normativa vigente e utilizzati esclusivamente per rispondere alla richiesta. *
+                  <label htmlFor="privacy" className="text-xs md:text-sm text-primary-600 leading-relaxed">
+                    Ho letto e accetto la <Link to="/privacy" className="text-primary underline hover:no-underline">privacy policy</Link>. I dati inseriti saranno trattati nel rispetto della normativa vigente e utilizzati esclusivamente per rispondere alla richiesta. *
                   </label>
                 </div>
 
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-primary text-white hover:bg-primary-600 rounded-full py-6 text-lg font-medium transition-all duration-300 shadow-soft hover:shadow-hover disabled:opacity-50"
+                  className="w-full bg-primary text-white hover:bg-primary-600 rounded-full py-5 md:py-6 text-base md:text-lg font-medium transition-all duration-300 shadow-soft hover:shadow-hover disabled:opacity-50"
                   data-testid="form-submit-button"
                 >
                   {isSubmitting ? "Invio in corso..." : "Invia messaggio"}
