@@ -3,12 +3,14 @@ import "@/App.css";
 import axios from "axios";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Menu, X, ChevronDown, Heart, Users, Brain, Compass, GraduationCap, Shield, Baby, MessageCircle, ArrowRight, ArrowUp, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Toaster, toast } from "sonner";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
