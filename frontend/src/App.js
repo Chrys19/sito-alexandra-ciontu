@@ -1074,11 +1074,10 @@ const Footer = () => {
   );
 };
 
-// Main App Component
-function App() {
+// Home Page Component
+const HomePage = () => {
   return (
-    <div className="App">
-      <Toaster position="top-center" richColors />
+    <>
       <Navigation />
       <main>
         <HeroSection />
@@ -1092,6 +1091,21 @@ function App() {
       </main>
       <Footer />
       <ScrollToTopButton />
+    </>
+  );
+};
+
+// Main App Component
+function App() {
+  return (
+    <div className="App">
+      <Toaster position="top-center" richColors />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
