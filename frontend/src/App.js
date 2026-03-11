@@ -395,19 +395,19 @@ const HeroSection = () => {
 const AboutSection = () => {
   return (
     <AnimatedSection className="section-padding bg-white" id="about">
-      <div className="max-w-7xl mx-auto px-6 md:px-12" data-testid="about-section">
+      <div className="max-w-7xl mx-auto px-4 md:px-12" data-testid="about-section">
         <div className="max-w-4xl mx-auto">
           {/* Content */}
-          <div className="text-center mb-12">
-            <motion.span variants={fadeInUp} className="text-secondary-700 font-medium tracking-wide uppercase text-sm">
+          <div className="text-center mb-8 md:mb-12">
+            <motion.span variants={fadeInUp} className="text-secondary-700 font-medium tracking-wide uppercase text-xs md:text-sm">
               Chi sono
             </motion.span>
-            <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl lg:text-5xl font-light text-primary-800 mt-3 mb-8">
+            <motion.h2 variants={fadeInUp} className="text-2xl md:text-4xl lg:text-5xl font-light text-primary-800 mt-2 md:mt-3 mb-6 md:mb-8">
               Mi presento
             </motion.h2>
           </div>
 
-          <motion.div variants={fadeInUp} className="space-y-6 text-primary-700 leading-relaxed text-lg">
+          <motion.div variants={fadeInUp} className="space-y-5 md:space-y-6 text-primary-700 leading-relaxed text-base md:text-lg">
             <p>
               Sono la <strong className="text-primary">Dott.ssa Alexandra Diana Ciontu</strong>, psicologa clinica iscritta all'Albo A della regione Lazio con il n. <strong>28863</strong> e psicoterapeuta ad orientamento strategico integrato in formazione presso la scuola di specializzazione SCUPSIS di Roma.
             </p>
@@ -419,7 +419,7 @@ const AboutSection = () => {
             </p>
           </motion.div>
 
-          <motion.div variants={fadeInUp} className="mt-10 text-center">
+          <motion.div variants={fadeInUp} className="mt-8 md:mt-10 text-center">
             <a
               href="#contact"
               onClick={(e) => {
@@ -427,7 +427,7 @@ const AboutSection = () => {
                 document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
               }}
               data-testid="about-cta"
-              className="inline-flex items-center gap-2 text-primary font-medium hover:text-primary-600 transition-colors group cursor-pointer"
+              className="inline-flex items-center gap-2 text-primary font-medium hover:text-primary-600 transition-colors group cursor-pointer text-base md:text-lg"
             >
               Richiedi informazioni
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
