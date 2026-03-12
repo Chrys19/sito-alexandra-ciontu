@@ -744,15 +744,27 @@ const ContactSection = () => {
     email: "",
     telefono: "",
     messaggio: "",
+    luogo: "",
     privacy_accepted: false,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const studioOptions = [
+    { value: "Studio Privato - Ostia Simonetti", label: "Studio Privato - Via Diego Simonetti 29, Ostia" },
+    { value: "Associazione L'Albero della Vita - Fiumicino", label: "Associazione L'Albero della Vita - Via del Canale 18, Fiumicino" },
+    { value: "Associazione Prinea - Ostia", label: "Associazione Prinea - Viale Ammiraglio del Bono 63, Ostia" },
+  ];
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     
     if (!formData.privacy_accepted) {
       toast.error("È necessario accettare la privacy policy");
+      return;
+    }
+
+    if (!formData.luogo) {
+      toast.error("Seleziona la sede preferita");
       return;
     }
 
@@ -766,6 +778,7 @@ const ContactSection = () => {
         email: "",
         telefono: "",
         messaggio: "",
+        luogo: "",
         privacy_accepted: false,
       });
     } catch (error) {
@@ -842,7 +855,7 @@ const ContactSection = () => {
           {/* Contact Form */}
           <motion.div variants={fadeInUp}>
             <form onSubmit={handleSubmit} className="bg-muted p-5 md:p-8 lg:p-10 rounded-2xl md:rounded-3xl" data-testid="contact-form">
-              <div className="space-y-4 md:space-y-6">
+              <div className="space-y-4 md:space-y-5">
                 <div>
                   <label htmlFor="nome" className="block text-sm font-medium text-primary-700 mb-2">
                     Nome e Cognome *
@@ -859,7 +872,7 @@ const ContactSection = () => {
                   />
                 </div>
 
-                <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
+                <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-primary-700 mb-2">
                       Email *
@@ -894,7 +907,7 @@ const ContactSection = () => {
 
                 <div>
                   <label htmlFor="messaggio" className="block text-sm font-medium text-primary-700 mb-2">
-                    Messaggio *
+                    Di cosa hai bisogno? *
                   </label>
                   <Textarea
                     id="messaggio"
@@ -908,7 +921,29 @@ const ContactSection = () => {
                   />
                 </div>
 
-                <div className="flex items-start gap-3">
+                <div>
+                  <label htmlFor="luogo" className="block text-sm font-medium text-primary-700 mb-2">
+                    Sede preferita *
+                  </label>
+                  <select
+                    id="luogo"
+                    required
+                    value={formData.luogo}
+                    onChange={(e) => setFormData({ ...formData, luogo: e.target.value })}
+                    className="w-full bg-white border border-secondary/30 focus:border-primary focus:ring-2 focus:ring-primary/20 h-11 md:h-12 rounded-xl text-base px-4 text-primary-700 appearance-none cursor-pointer"
+                    style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2358355E'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center', backgroundSize: '20px' }}
+                    data-testid="form-select-luogo"
+                  >
+                    <option value="">Seleziona una sede...</option>
+                    {studioOptions.map((option) => (
+                      <option key={option.value} value={option.value}>
+                        {option.label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="flex items-start gap-3 pt-2">
                   <Checkbox
                     id="privacy"
                     checked={formData.privacy_accepted}
@@ -924,7 +959,7 @@ const ContactSection = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-primary text-white hover:bg-primary-600 rounded-full py-5 md:py-6 text-base md:text-lg font-medium transition-all duration-300 shadow-soft hover:shadow-hover disabled:opacity-50"
+                  className="w-full bg-primary text-white hover:bg-primary-600 rounded-full py-5 md:py-6 text-base md:text-lg font-medium transition-all duration-300 shadow-soft hover:shadow-hover disabled:opacity-50 mt-2"
                   data-testid="form-submit-button"
                 >
                   {isSubmitting ? "Invio in corso..." : "Invia messaggio"}
