@@ -56,7 +56,7 @@ const LOCATIONS = [
     address: "Viale Ammiraglio del Bono 63, 00122, Ostia",
     maps: "https://maps.google.com/?q=Viale+Ammiraglio+del+Bono+63+00122+Ostia",
     images: [
-      "https://customer-assets.emergentagent.com/job_equilibrio-psiche/artifacts/mu7p4mms_fiumicino-canale-1.webp",
+      "https://customer-assets.emergentagent.com/job_equilibrio-psiche/artifacts/f0osjcxl_88f3d469-a860-4f87-9e04-ab39920f60a4%202.jpg",
       "https://customer-assets.emergentagent.com/job_equilibrio-psiche/artifacts/v27xt6dz_ostia-bono-1.jpg"
     ],
   },
@@ -600,7 +600,7 @@ const SpacesSection = () => {
           {[
             { image: ASSETS.studioOstiaSimonetti, title: "Studio Ostia - Via Simonetti" },
             { image: ASSETS.studioFiumicino, title: "Fiumicino - L'Albero della Vita" },
-            { image: ASSETS.studioOstiaBono, title: "Ostia - Associazione Prinea" },
+            { image: "https://customer-assets.emergentagent.com/job_equilibrio-psiche/artifacts/f0osjcxl_88f3d469-a860-4f87-9e04-ab39920f60a4%202.jpg", title: "Ostia - Associazione Prinea" },
           ].map((studio, index) => (
             <motion.div
               key={index}
