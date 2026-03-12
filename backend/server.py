@@ -39,6 +39,7 @@ class ContactMessage(BaseModel):
     email: EmailStr
     telefono: str = Field(..., min_length=6, max_length=20)
     messaggio: str = Field(..., min_length=10, max_length=2000)
+    luogo: str = Field(default="", max_length=200)
     privacy_accepted: bool = Field(default=True)
     timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     letto: bool = Field(default=False)
@@ -49,6 +50,7 @@ class ContactMessageCreate(BaseModel):
     email: EmailStr
     telefono: str = Field(..., min_length=6, max_length=20)
     messaggio: str = Field(..., min_length=10, max_length=2000)
+    luogo: str = Field(..., min_length=2, max_length=200)
     privacy_accepted: bool = Field(default=True)
 
 
@@ -58,6 +60,7 @@ class ContactMessageResponse(BaseModel):
     email: str
     telefono: str
     messaggio: str
+    luogo: str
     timestamp: datetime
     letto: bool
 
@@ -108,6 +111,7 @@ async def create_contact_message(input_data: ContactMessageCreate):
         email=contact_obj.email,
         telefono=contact_obj.telefono,
         messaggio=contact_obj.messaggio,
+        luogo=contact_obj.luogo,
         timestamp=contact_obj.timestamp,
         letto=contact_obj.letto
     )
