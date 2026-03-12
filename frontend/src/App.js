@@ -321,7 +321,7 @@ const HeroSection = () => {
                 className="btn-glow inline-flex items-center justify-center gap-2 bg-primary text-white px-6 md:px-8 py-4 rounded-full text-base md:text-lg font-medium hover:bg-primary-600 transition-all duration-300 shadow-soft hover:shadow-hover"
               >
                 <MessageCircle size={20} />
-                Prenota un primo contatto
+                Prenota un primo colloquio
               </a>
               <a
                 href="#about"
