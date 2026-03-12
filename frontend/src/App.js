@@ -314,7 +314,7 @@ const HeroSection = () => {
             </blockquote>
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center lg:justify-start">
               <a
-                href={`https://wa.me/39${CONTACT.whatsapp}?text=${encodeURIComponent("Prenota un primo colloquio")}`}
+                href={`https://wa.me/39${CONTACT.whatsapp}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 data-testid="hero-cta-primary"
@@ -543,8 +543,8 @@ const ProcessSection = () => {
         </div>
 
         <div className="relative">
-          {/* Timeline line - hidden on mobile */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-secondary via-primary/30 to-secondary transform -translate-x-1/2" />
+          {/* Timeline line - visible on all screens */}
+          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-secondary via-primary/30 to-secondary md:transform md:-translate-x-1/2" />
 
           <div className="space-y-6 md:space-y-0">
             {PROCESS_STEPS.map((step, index) => (
@@ -556,8 +556,11 @@ const ProcessSection = () => {
                 } md:gap-8 mb-6 md:mb-12`}
                 data-testid={`process-step-${index}`}
               >
+                {/* Mobile: dot on the left */}
+                <div className="absolute left-6 top-6 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-3 border-white shadow-lg md:hidden z-10" />
+                
                 {/* Content */}
-                <div className={`md:w-1/2 ${index % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12"}`}>
+                <div className={`md:w-1/2 ${index % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12"} pl-14 md:pl-0`}>
                   <div className="bg-white p-5 md:p-6 lg:p-8 rounded-2xl md:rounded-3xl shadow-soft">
                     <span className="font-script text-3xl md:text-4xl text-secondary">{step.number}</span>
                     <h3 className="text-lg md:text-xl font-medium text-primary-800 mt-2 mb-3 md:mb-4">{step.title}</h3>
@@ -565,7 +568,7 @@ const ProcessSection = () => {
                   </div>
                 </div>
 
-                {/* Center dot */}
+                {/* Desktop: Center dot */}
                 <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-5 h-5 bg-primary rounded-full border-4 border-white shadow-lg" />
 
                 {/* Spacer for opposite side */}
