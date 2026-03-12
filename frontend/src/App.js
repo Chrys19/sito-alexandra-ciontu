@@ -4,7 +4,7 @@ import axios from "axios";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import { Phone, Mail, MapPin, Menu, X, ChevronDown, Users, Brain, Compass, GraduationCap, Shield, Baby, MessageCircle, ArrowRight, ArrowUp, ChevronLeft, ChevronRight } from "lucide-react";
+import { Phone, Mail, MapPin, Menu, X, ChevronDown, Heart, Users, Brain, Compass, GraduationCap, Shield, Baby, MessageCircle, ArrowRight, ArrowUp, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
