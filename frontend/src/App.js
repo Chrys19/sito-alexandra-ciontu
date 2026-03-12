@@ -48,7 +48,7 @@ const LOCATIONS = [
     maps: "https://maps.google.com/?q=Via+del+Canale+18+00054+Fiumicino",
     images: [
       ASSETS.studioFiumicino,
-      "https://customer-assets.emergentagent.com/job_equilibrio-psiche/artifacts/mu7p4mms_fiumicino-canale-1.webp"
+      ASSETS.studioOstiaBono
     ],
   },
   {
@@ -56,7 +56,7 @@ const LOCATIONS = [
     address: "Viale Ammiraglio del Bono 63, 00122, Ostia",
     maps: "https://maps.google.com/?q=Viale+Ammiraglio+del+Bono+63+00122+Ostia",
     images: [
-      ASSETS.studioOstiaBono,
+      "https://customer-assets.emergentagent.com/job_equilibrio-psiche/artifacts/mu7p4mms_fiumicino-canale-1.webp",
       "https://customer-assets.emergentagent.com/job_equilibrio-psiche/artifacts/v27xt6dz_ostia-bono-1.jpg"
     ],
   },
@@ -70,11 +70,6 @@ const AREAS = [
     description: "Di coppia, familiari, amicali – quando i legami diventano faticosi o conflittuali e le tensioni comunicative generano incomprensioni.",
   },
   {
-    icon: Heart,
-    title: "Blocchi evolutivi e familiari",
-    description: "Nelle fasi in cui il sistema fatica a riorganizzarsi e a trovare nuovi equilibri.",
-  },
-  {
     icon: Shield,
     title: "Confini e bisogni personali",
     description: "Riconoscimento dei propri bisogni e costruzione di confini più chiari – dire sì, dire no, senza colpa.",
@@ -86,8 +81,8 @@ const AREAS = [
   },
   {
     icon: Compass,
-    title: "Crisi e transizioni",
-    description: "Cambiamenti, scelte, separazioni, passaggi di vita – quando serve ritrovare direzione.",
+    title: "Crisi, blocchi e transizioni",
+    description: "Cambiamenti, scelte, separazioni, passaggi di vita – quando serve ritrovare equilibrio e una nuova direzione.",
   },
   {
     icon: GraduationCap,
@@ -169,7 +164,7 @@ const Navigation = () => {
 
   const navLinks = [
     { label: "Mi presento", href: "#about" },
-    { label: "Metodo", href: "#method" },
+    { label: "Approccio", href: "#method" },
     { label: "Aree di intervento", href: "#areas" },
     { label: "Percorso", href: "#process" },
     { label: "Sedi", href: "#locations" },
@@ -1008,7 +1003,7 @@ const Footer = () => {
           <div>
             <h4 className="text-base md:text-lg font-medium mb-4 md:mb-6">Link rapidi</h4>
             <ul className="space-y-2 md:space-y-3">
-              {["Mi presento", "Metodo", "Aree di intervento", "Percorso", "Sedi", "Contatti"].map((link, index) => (
+              {["Mi presento", "Approccio", "Aree di intervento", "Percorso", "Sedi", "Contatti"].map((link, index) => (
                 <li key={index}>
                   <a
                     href={`#${["about", "method", "areas", "process", "locations", "contact"][index]}`}
