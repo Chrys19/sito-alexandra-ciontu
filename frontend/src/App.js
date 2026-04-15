@@ -600,7 +600,7 @@ const ProcessSection = () => {
   );
 };
 
-// Spaces Section - Aesthetic Gallery
+// Spaces Section - Minimal Aesthetic
 const GALLERY_PHOTOS = [
   "https://customer-assets.emergentagent.com/job_64e90b06-3d7a-462f-8271-6f203a92112d/artifacts/84ywlym6_8b5f1801-2d83-4c9f-a8ba-c85d2c8642e5.jpg",
   "https://customer-assets.emergentagent.com/job_64e90b06-3d7a-462f-8271-6f203a92112d/artifacts/69c2yvke_89857915-1535-431d-be54-1868d3a3cdf0.jpg",
@@ -611,7 +611,7 @@ const SpacesSection = () => {
   return (
     <AnimatedSection className="section-padding bg-white" id="spaces">
       <div className="max-w-7xl mx-auto px-4 md:px-12" data-testid="spaces-section">
-        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-12">
           <motion.span variants={fadeInUp} className="text-secondary-700 font-medium tracking-wide uppercase text-xs md:text-sm">
             Dove ti accolgo
           </motion.span>
@@ -623,73 +623,26 @@ const SpacesSection = () => {
           </motion.p>
         </div>
 
-        {/* Desktop: Asymmetric Gallery Wall */}
-        <motion.div variants={fadeInUp} className="hidden md:flex items-center justify-center gap-6 lg:gap-10 max-w-4xl mx-auto">
-          {/* Left photo - slightly rotated */}
-          <div className="relative group" style={{ transform: "rotate(-3deg)" }}>
-            <div className="bg-white p-3 rounded-lg shadow-soft group-hover:shadow-hover transition-all duration-500 group-hover:-translate-y-1">
-              <div className="w-52 lg:w-60 aspect-square rounded overflow-hidden">
-                <img
-                  src={GALLERY_PHOTOS[0]}
-                  alt="Spazio terapeutico"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  data-testid="gallery-photo-0"
-                />
-              </div>
-            </div>
-            <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-secondary/20 rounded-full blur-lg" />
-          </div>
-
-          {/* Center photo - larger, straight */}
-          <div className="relative group -mt-6">
-            <div className="bg-white p-3 rounded-lg shadow-soft group-hover:shadow-hover transition-all duration-500 group-hover:-translate-y-1">
-              <div className="w-60 lg:w-72 aspect-[4/5] rounded overflow-hidden">
-                <img
-                  src={GALLERY_PHOTOS[1]}
-                  alt="Spazio terapeutico"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  data-testid="gallery-photo-1"
-                />
-              </div>
-            </div>
-            <div className="absolute -top-3 -left-3 w-10 h-10 bg-primary/10 rounded-full blur-xl" />
-          </div>
-
-          {/* Right photo - slightly rotated other way */}
-          <div className="relative group" style={{ transform: "rotate(2.5deg)" }}>
-            <div className="bg-white p-3 rounded-lg shadow-soft group-hover:shadow-hover transition-all duration-500 group-hover:-translate-y-1">
-              <div className="w-52 lg:w-60 aspect-square rounded overflow-hidden">
-                <img
-                  src={GALLERY_PHOTOS[2]}
-                  alt="Spazio terapeutico"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  data-testid="gallery-photo-2"
-                />
-              </div>
-            </div>
-            <div className="absolute -bottom-2 -left-2 w-8 h-8 bg-secondary/20 rounded-full blur-lg" />
-          </div>
-        </motion.div>
-
-        {/* Mobile: Horizontal scroll gallery */}
-        <motion.div variants={fadeInUp} className="md:hidden flex gap-4 overflow-x-auto pb-4 px-2 snap-x snap-mandatory scrollbar-hide">
+        {/* Minimal photo accent strip */}
+        <motion.div variants={fadeInUp} className="flex items-center justify-center gap-3 md:gap-5 my-8 md:my-12">
+          <div className="hidden sm:block flex-1 max-w-[120px] h-px bg-gradient-to-r from-transparent to-secondary/40" />
           {GALLERY_PHOTOS.map((photo, index) => (
-            <div key={index} className="flex-shrink-0 snap-center">
-              <div className="bg-white p-2.5 rounded-lg shadow-soft">
-                <div className="w-56 aspect-square rounded overflow-hidden">
-                  <img
-                    src={photo}
-                    alt="Spazio terapeutico"
-                    className="w-full h-full object-cover"
-                    data-testid={`gallery-photo-mobile-${index}`}
-                  />
-                </div>
-              </div>
+            <div
+              key={index}
+              className="w-20 h-20 md:w-24 md:h-24 rounded-2xl overflow-hidden opacity-85 hover:opacity-100 transition-opacity duration-500"
+              data-testid={`gallery-photo-${index}`}
+            >
+              <img
+                src={photo}
+                alt="Spazio terapeutico"
+                className="w-full h-full object-cover"
+              />
             </div>
           ))}
+          <div className="hidden sm:block flex-1 max-w-[120px] h-px bg-gradient-to-l from-transparent to-secondary/40" />
         </motion.div>
 
-        <motion.p variants={fadeInUp} className="text-center text-primary-600 mt-8 md:mt-12 max-w-2xl mx-auto text-sm md:text-base px-2">
+        <motion.p variants={fadeInUp} className="text-center text-primary-600 max-w-2xl mx-auto text-sm md:text-base px-2">
           Sono ambienti <strong className="text-primary">accoglienti e riservati</strong> pensati per garantire un setting sicuro e professionale.
         </motion.p>
       </div>
