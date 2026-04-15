@@ -623,23 +623,21 @@ const SpacesSection = () => {
           </motion.p>
         </div>
 
-        {/* Minimal photo accent strip */}
-        <motion.div variants={fadeInUp} className="flex items-center justify-center gap-3 md:gap-5 my-8 md:my-12">
-          <div className="hidden sm:block flex-1 max-w-[120px] h-px bg-gradient-to-r from-transparent to-secondary/40" />
-          {GALLERY_PHOTOS.map((photo, index) => (
-            <div
-              key={index}
-              className="w-20 h-20 md:w-24 md:h-24 rounded-2xl overflow-hidden opacity-85 hover:opacity-100 transition-opacity duration-500"
-              data-testid={`gallery-photo-${index}`}
-            >
-              <img
-                src={photo}
-                alt="Spazio terapeutico"
-                className="w-full h-full object-cover"
-              />
+        {/* Minimal photo accent strip with decorative frame */}
+        <motion.div variants={fadeInUp} className="flex items-center justify-center my-8 md:my-12">
+          <div className="inline-flex items-center gap-4 md:gap-6 bg-muted/60 px-6 md:px-10 py-5 md:py-6 rounded-full border border-secondary/15">
+            <div className="w-20 h-20 md:w-[100px] md:h-[100px] rounded-xl overflow-hidden ring-2 ring-white shadow-sm" data-testid="gallery-photo-0">
+              <img src={GALLERY_PHOTOS[0]} alt="Spazio terapeutico" className="w-full h-full object-cover" />
             </div>
-          ))}
-          <div className="hidden sm:block flex-1 max-w-[120px] h-px bg-gradient-to-l from-transparent to-secondary/40" />
+            <div className="w-1 h-1 rounded-full bg-secondary/50" />
+            <div className="w-24 h-24 md:w-[116px] md:h-[116px] rounded-full overflow-hidden ring-2 ring-secondary/30 shadow-soft" data-testid="gallery-photo-1">
+              <img src={GALLERY_PHOTOS[1]} alt="Spazio terapeutico" className="w-full h-full object-cover" />
+            </div>
+            <div className="w-1 h-1 rounded-full bg-secondary/50" />
+            <div className="w-20 h-20 md:w-[100px] md:h-[100px] rounded-xl overflow-hidden ring-2 ring-white shadow-sm" data-testid="gallery-photo-2">
+              <img src={GALLERY_PHOTOS[2]} alt="Spazio terapeutico" className="w-full h-full object-cover" />
+            </div>
+          </div>
         </motion.div>
 
         <motion.p variants={fadeInUp} className="text-center text-primary-600 max-w-2xl mx-auto text-sm md:text-base px-2">
