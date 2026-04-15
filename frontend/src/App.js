@@ -600,7 +600,13 @@ const ProcessSection = () => {
   );
 };
 
-// Spaces Section
+// Spaces Section - Aesthetic Gallery
+const GALLERY_PHOTOS = [
+  "https://customer-assets.emergentagent.com/job_64e90b06-3d7a-462f-8271-6f203a92112d/artifacts/84ywlym6_8b5f1801-2d83-4c9f-a8ba-c85d2c8642e5.jpg",
+  "https://customer-assets.emergentagent.com/job_64e90b06-3d7a-462f-8271-6f203a92112d/artifacts/69c2yvke_89857915-1535-431d-be54-1868d3a3cdf0.jpg",
+  "https://customer-assets.emergentagent.com/job_64e90b06-3d7a-462f-8271-6f203a92112d/artifacts/jnjh3fxo_aedb3bdd-77f1-4a67-96dc-ffcb24761045.jpg",
+];
+
 const SpacesSection = () => {
   return (
     <AnimatedSection className="section-padding bg-white" id="spaces">
@@ -617,32 +623,71 @@ const SpacesSection = () => {
           </motion.p>
         </div>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
-          {[
-            { image: ASSETS.studioOstiaSimonetti, title: "Studio Ostia - Via Simonetti" },
-            { image: ASSETS.studioFiumicino, title: "Fiumicino - L'Albero della Vita" },
-            { image: "https://customer-assets.emergentagent.com/job_equilibrio-psiche/artifacts/f0osjcxl_88f3d469-a860-4f87-9e04-ab39920f60a4%202.jpg", title: "Ostia - Associazione Prinea" },
-          ].map((studio, index) => (
-            <motion.div
-              key={index}
-              variants={fadeInUp}
-              className="group relative rounded-2xl md:rounded-3xl overflow-hidden shadow-soft hover:shadow-hover transition-shadow duration-500"
-              data-testid={`studio-image-${index}`}
-            >
-              <div className="aspect-[4/3] overflow-hidden">
+        {/* Desktop: Asymmetric Gallery Wall */}
+        <motion.div variants={fadeInUp} className="hidden md:flex items-center justify-center gap-6 lg:gap-10 max-w-4xl mx-auto">
+          {/* Left photo - slightly rotated */}
+          <div className="relative group" style={{ transform: "rotate(-3deg)" }}>
+            <div className="bg-white p-3 rounded-lg shadow-soft group-hover:shadow-hover transition-all duration-500 group-hover:-translate-y-1">
+              <div className="w-52 lg:w-60 aspect-square rounded overflow-hidden">
                 <img
-                  src={studio.image}
-                  alt={studio.title}
-                  className="w-full h-full object-cover studio-image"
+                  src={GALLERY_PHOTOS[0]}
+                  alt="Spazio terapeutico"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  data-testid="gallery-photo-0"
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-primary-900/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                <p className="font-medium text-sm md:text-base">{studio.title}</p>
+            </div>
+            <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-secondary/20 rounded-full blur-lg" />
+          </div>
+
+          {/* Center photo - larger, straight */}
+          <div className="relative group -mt-6">
+            <div className="bg-white p-3 rounded-lg shadow-soft group-hover:shadow-hover transition-all duration-500 group-hover:-translate-y-1">
+              <div className="w-60 lg:w-72 aspect-[4/5] rounded overflow-hidden">
+                <img
+                  src={GALLERY_PHOTOS[1]}
+                  alt="Spazio terapeutico"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  data-testid="gallery-photo-1"
+                />
               </div>
-            </motion.div>
+            </div>
+            <div className="absolute -top-3 -left-3 w-10 h-10 bg-primary/10 rounded-full blur-xl" />
+          </div>
+
+          {/* Right photo - slightly rotated other way */}
+          <div className="relative group" style={{ transform: "rotate(2.5deg)" }}>
+            <div className="bg-white p-3 rounded-lg shadow-soft group-hover:shadow-hover transition-all duration-500 group-hover:-translate-y-1">
+              <div className="w-52 lg:w-60 aspect-square rounded overflow-hidden">
+                <img
+                  src={GALLERY_PHOTOS[2]}
+                  alt="Spazio terapeutico"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  data-testid="gallery-photo-2"
+                />
+              </div>
+            </div>
+            <div className="absolute -bottom-2 -left-2 w-8 h-8 bg-secondary/20 rounded-full blur-lg" />
+          </div>
+        </motion.div>
+
+        {/* Mobile: Horizontal scroll gallery */}
+        <motion.div variants={fadeInUp} className="md:hidden flex gap-4 overflow-x-auto pb-4 px-2 snap-x snap-mandatory scrollbar-hide">
+          {GALLERY_PHOTOS.map((photo, index) => (
+            <div key={index} className="flex-shrink-0 snap-center">
+              <div className="bg-white p-2.5 rounded-lg shadow-soft">
+                <div className="w-56 aspect-square rounded overflow-hidden">
+                  <img
+                    src={photo}
+                    alt="Spazio terapeutico"
+                    className="w-full h-full object-cover"
+                    data-testid={`gallery-photo-mobile-${index}`}
+                  />
+                </div>
+              </div>
+            </div>
           ))}
-        </div>
+        </motion.div>
 
         <motion.p variants={fadeInUp} className="text-center text-primary-600 mt-8 md:mt-12 max-w-2xl mx-auto text-sm md:text-base px-2">
           Sono ambienti <strong className="text-primary">accoglienti e riservati</strong> pensati per garantire un setting sicuro e professionale.
