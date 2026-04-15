@@ -35,7 +35,7 @@ Creare un sito vetrina premium, elegante, rassicurante e altamente professionale
 - ✅ Bottone "Prenota" nel menu → rimanda a sezione contatti
 - ✅ Bottone scroll-to-top in basso a destra
 
-### Iterazione 3 - Privacy, SEO e Mobile (Completato - Data odierna)
+### Iterazione 3 - Privacy, SEO e Mobile (Completato)
 - ✅ **Privacy Policy page** completa GDPR (/privacy)
 - ✅ **SEO ottimizzato** con meta tags (title, description, keywords, Open Graph)
 - ✅ **Logo più in risalto** (più grande, con bordo, glow e testo accanto)
@@ -48,6 +48,11 @@ Creare un sito vetrina premium, elegante, rassicurante e altamente professionale
   - Spaziature e font ridotti per mobile
 - ✅ **Link Privacy** nel footer e nel form contatti
 
+### Iterazione 4 - Modifiche Contenuto (Completato - 15 Apr 2026)
+- ✅ **Hero**: Rimossa dicitura "Psicologa clinica specializzanda in psicoterapia strategica integrata" e ribilanciato layout testi
+- ✅ **GuidaPsicologi**: Aggiunto badge elegante nella sezione "Mi presento" con link al profilo su guidapsicologi.it (https://www.guidapsicologi.it/studio/dottssa-alexandra-diana-ciontu)
+- ✅ **Foto Studio Ostia Simonetti**: Sostituite le 2 foto del carousel con le nuove immagini fornite dal cliente
+
 ### Assets Utilizzati
 - Logo: ADC Logo (visualizzato tondo con bordo)
 - Foto profilo: fornita dal cliente
@@ -56,7 +61,7 @@ Creare un sito vetrina premium, elegante, rassicurante e altamente professionale
 ### Contatti Implementati
 - Telefono: 3275569910
 - Email: alexandra.ciontu.psi@gmail.com
-- WhatsApp: 3275569910 (con messaggio precompilato)
+- WhatsApp: 3275569910 (senza messaggio precompilato)
 
 ## Prioritized Backlog
 

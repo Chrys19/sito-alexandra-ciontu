@@ -4,7 +4,7 @@ import axios from "axios";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import { Phone, Mail, MapPin, Menu, X, ChevronDown, Heart, Users, Brain, Compass, GraduationCap, Shield, Baby, MessageCircle, ArrowRight, ArrowUp, ChevronLeft, ChevronRight } from "lucide-react";
+import { Phone, Mail, MapPin, Menu, X, ChevronDown, Heart, Users, Brain, Compass, GraduationCap, Shield, Baby, MessageCircle, ArrowRight, ArrowUp, ChevronLeft, ChevronRight, Star, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -21,7 +21,8 @@ const ASSETS = {
   profile: "https://customer-assets.emergentagent.com/job_equilibrio-psiche/artifacts/6hyxzpyx_6621fa4f-17a9-46da-b45e-8b785f81235e.jpg",
   studioFiumicino: "https://customer-assets.emergentagent.com/job_equilibrio-psiche/artifacts/9shqidqf_fiumicino-canale-2.webp",
   studioOstiaBono: "https://customer-assets.emergentagent.com/job_equilibrio-psiche/artifacts/176wlws3_ostia-bono-2.webp",
-  studioOstiaSimonetti: "https://customer-assets.emergentagent.com/job_equilibrio-psiche/artifacts/uem5oenc_ostia-simonetti-1.webp",
+  studioOstiaSimonetti: "https://customer-assets.emergentagent.com/job_64e90b06-3d7a-462f-8271-6f203a92112d/artifacts/qs5rlx1n_WhatsApp%20Image%202026-04-15%20at%2010.45.47%20%282%29.jpg",
+  studioOstiaSimonetti2: "https://customer-assets.emergentagent.com/job_64e90b06-3d7a-462f-8271-6f203a92112d/artifacts/32xc0ami_WhatsApp%20Image%202026-04-15%20at%2010.45.47.jpg",
 };
 
 // Contact info
@@ -39,7 +40,7 @@ const LOCATIONS = [
     maps: "https://maps.google.com/?q=Via+Diego+Simonetti+29+00122+Ostia",
     images: [
       ASSETS.studioOstiaSimonetti,
-      "https://customer-assets.emergentagent.com/job_equilibrio-psiche/artifacts/op0vm3a3_ostia-simonetti-2.webp"
+      ASSETS.studioOstiaSimonetti2,
     ],
   },
   {
@@ -303,12 +304,9 @@ const HeroSection = () => {
             <p className="text-secondary-700 font-medium mb-3 md:mb-4 tracking-wide uppercase text-xs md:text-sm">
               Psicologa Clinica • Ostia & Fiumicino
             </p>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-primary-800 tracking-tight mb-4 md:mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-primary-800 tracking-tight mb-6 md:mb-8 leading-tight">
               Dott.ssa Alexandra<br />Diana Ciontu
             </h1>
-            <p className="font-script text-xl md:text-2xl lg:text-3xl text-secondary-700 mb-4 md:mb-6 leading-relaxed">
-              Psicologa clinica specializzanda in psicoterapia strategica integrata.
-            </p>
             <blockquote className="text-base md:text-lg lg:text-xl text-primary-600 italic mb-8 md:mb-10 px-4 lg:px-0 lg:pl-4 border-l-0 lg:border-l-2 border-secondary">
               "Se continui a fare ciò che hai sempre fatto, continuerai ad ottenere ciò che hai sempre ottenuto"
             </blockquote>
@@ -414,7 +412,27 @@ const AboutSection = () => {
             </p>
           </motion.div>
 
-          <motion.div variants={fadeInUp} className="mt-8 md:mt-10 text-center">
+          {/* GuidaPsicologi Badge */}
+          <motion.div variants={fadeInUp} className="mt-8 md:mt-10">
+            <a
+              href="https://www.guidapsicologi.it/studio/dottssa-alexandra-diana-ciontu"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-testid="guidapsicologi-link"
+              className="group flex items-center gap-4 mx-auto max-w-md p-4 md:p-5 bg-gradient-to-r from-secondary/10 to-secondary/5 border border-secondary/25 rounded-2xl hover:border-secondary/50 hover:shadow-soft transition-all duration-500"
+            >
+              <div className="w-11 h-11 md:w-12 md:h-12 bg-white rounded-xl flex items-center justify-center shadow-sm flex-shrink-0 group-hover:shadow-md transition-shadow">
+                <Star className="w-5 h-5 md:w-6 md:h-6 text-secondary-700" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-sm md:text-base font-medium text-primary-800 leading-tight">Scopri il mio profilo su GuidaPsicologi</p>
+                <p className="text-xs md:text-sm text-primary-500 mt-0.5">Recensioni, disponibilità e informazioni</p>
+              </div>
+              <ExternalLink size={16} className="text-primary-400 group-hover:text-primary flex-shrink-0 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </a>
+          </motion.div>
+
+          <motion.div variants={fadeInUp} className="mt-6 md:mt-8 text-center">
             <a
               href="#contact"
               onClick={(e) => {
