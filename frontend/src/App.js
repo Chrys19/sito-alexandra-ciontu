@@ -623,19 +623,30 @@ const SpacesSection = () => {
           </motion.p>
         </div>
 
-        {/* Minimal photo accent strip with decorative frame */}
-        <motion.div variants={fadeInUp} className="flex items-center justify-center my-8 md:my-12">
-          <div className="inline-flex items-center gap-4 md:gap-6 bg-muted/60 px-6 md:px-10 py-5 md:py-6 rounded-full border border-secondary/15">
-            <div className="w-20 h-20 md:w-[100px] md:h-[100px] rounded-xl overflow-hidden ring-2 ring-white shadow-sm" data-testid="gallery-photo-0">
-              <img src={GALLERY_PHOTOS[0]} alt="Spazio terapeutico" className="w-full h-full object-cover" />
-            </div>
-            <div className="w-1 h-1 rounded-full bg-secondary/50" />
-            <div className="w-24 h-24 md:w-[116px] md:h-[116px] rounded-full overflow-hidden ring-2 ring-secondary/30 shadow-soft" data-testid="gallery-photo-1">
-              <img src={GALLERY_PHOTOS[1]} alt="Spazio terapeutico" className="w-full h-full object-cover" />
-            </div>
-            <div className="w-1 h-1 rounded-full bg-secondary/50" />
-            <div className="w-20 h-20 md:w-[100px] md:h-[100px] rounded-xl overflow-hidden ring-2 ring-white shadow-sm" data-testid="gallery-photo-2">
-              <img src={GALLERY_PHOTOS[2]} alt="Spazio terapeutico" className="w-full h-full object-cover" />
+        {/* Photo gallery with color accents */}
+        <motion.div variants={fadeInUp} className="my-8 md:my-12">
+          <div className="bg-gradient-to-r from-secondary/10 via-primary/5 to-secondary/10 rounded-3xl md:rounded-[2rem] py-8 md:py-10 px-6 md:px-12 border border-secondary/20">
+            <div className="flex items-center justify-center gap-5 md:gap-8">
+              <div className="relative">
+                <div className="absolute -inset-1.5 bg-secondary/30 rounded-2xl blur-sm" />
+                <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-2xl overflow-hidden border-[3px] border-white shadow-soft" data-testid="gallery-photo-0">
+                  <img src={GALLERY_PHOTOS[0]} alt="Spazio terapeutico" className="w-full h-full object-cover" />
+                </div>
+              </div>
+
+              <div className="relative -mt-3 md:-mt-4">
+                <div className="absolute -inset-2 bg-primary/15 rounded-full blur-sm" />
+                <div className="relative w-32 h-32 md:w-44 md:h-44 rounded-full overflow-hidden border-[3px] border-white shadow-hover" data-testid="gallery-photo-1">
+                  <img src={GALLERY_PHOTOS[1]} alt="Spazio terapeutico" className="w-full h-full object-cover" />
+                </div>
+              </div>
+
+              <div className="relative">
+                <div className="absolute -inset-1.5 bg-secondary/30 rounded-2xl blur-sm" />
+                <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-2xl overflow-hidden border-[3px] border-white shadow-soft" data-testid="gallery-photo-2">
+                  <img src={GALLERY_PHOTOS[2]} alt="Spazio terapeutico" className="w-full h-full object-cover" />
+                </div>
+              </div>
             </div>
           </div>
         </motion.div>
