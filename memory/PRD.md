@@ -64,6 +64,15 @@ Creare un sito vetrina premium, elegante, rassicurante e altamente professionale
 - Email: alexandra.ciontu.psi@gmail.com
 - WhatsApp: 3275569910 (senza messaggio precompilato)
 
+### Iterazione 5 - Cookie Banner GDPR + Refactoring (Completato - 19 Apr 2026)
+- ✅ **Cookie Banner GDPR**: Banner con "Accetta" e "Solo necessari", link privacy policy, animazione fluida, consenso salvato in localStorage
+- ✅ **Refactoring completo App.js**: Da 1 file monolitico (1100+ righe) a 13 file modulari:
+  - `/data/constants.js` - Costanti, dati e varianti animazione
+  - `/components/` - AnimatedSection, Navigation, Footer, ScrollToTopButton, CookieBanner
+  - `/sections/` - HeroSection, AboutSection, MethodSection, AreasSection, ProcessSection, LocationsSection, ContactSection
+  - `App.js` - Solo routing e composizione (~50 righe)
+- ✅ **Bug fix backend**: Campo `luogo` reso opzionale nel modello risposta per compatibilità con record legacy
+
 ## Prioritized Backlog
 
 ### P0 (Critical) - COMPLETATO ✅
