@@ -60,7 +60,7 @@ class ContactMessageResponse(BaseModel):
     email: str
     telefono: str
     messaggio: str
-    luogo: str
+    luogo: Optional[str] = ""
     timestamp: datetime
     letto: bool
 
@@ -127,6 +127,9 @@ async def get_contact_messages():
     for msg in messages:
         if isinstance(msg['timestamp'], str):
             msg['timestamp'] = datetime.fromisoformat(msg['timestamp'])
+        # Handle legacy messages without luogo field
+        if 'luogo' not in msg:
+            msg['luogo'] = ""
     
     return messages
 
