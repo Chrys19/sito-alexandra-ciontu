@@ -52,7 +52,7 @@ Creare un sito vetrina premium, elegante, rassicurante e altamente professionale
 - ✅ **Hero**: Rimossa dicitura "Psicologa clinica specializzanda in psicoterapia strategica integrata" e ribilanciato layout testi
 - ✅ **GuidaPsicologi**: Aggiunto badge elegante nella sezione "Mi presento" con link al profilo su guidapsicologi.it
 - ✅ **Foto Studio Ostia Simonetti**: Sostituite le 2 foto del carousel con le nuove immagini fornite dal cliente
-- ✅ **Sezione "Lo spazio terapeutico"**: Ridisegnata con layout galleria asimmetrica decorativa (3 foto con rotazioni, cornici polaroid, effetti hover) per differenziarla dalla sezione "Dove ricevo"
+- ✅ **Sezioni unite**: "Lo spazio terapeutico" e "Dove ricevo" fuse in un'unica sezione coerente con titolo, testo descrittivo e card sedi con carousel
 
 ### Assets Utilizzati
 - Logo: ADC Logo (visualizzato tondo con bordo)

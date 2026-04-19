@@ -600,65 +600,6 @@ const ProcessSection = () => {
   );
 };
 
-// Spaces Section - Minimal Aesthetic
-const GALLERY_PHOTOS = [
-  "https://customer-assets.emergentagent.com/job_64e90b06-3d7a-462f-8271-6f203a92112d/artifacts/84ywlym6_8b5f1801-2d83-4c9f-a8ba-c85d2c8642e5.jpg",
-  "https://customer-assets.emergentagent.com/job_64e90b06-3d7a-462f-8271-6f203a92112d/artifacts/69c2yvke_89857915-1535-431d-be54-1868d3a3cdf0.jpg",
-  "https://customer-assets.emergentagent.com/job_64e90b06-3d7a-462f-8271-6f203a92112d/artifacts/jnjh3fxo_aedb3bdd-77f1-4a67-96dc-ffcb24761045.jpg",
-];
-
-const SpacesSection = () => {
-  return (
-    <AnimatedSection className="section-padding bg-white" id="spaces">
-      <div className="max-w-7xl mx-auto px-4 md:px-12" data-testid="spaces-section">
-        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-12">
-          <motion.span variants={fadeInUp} className="text-secondary-700 font-medium tracking-wide uppercase text-xs md:text-sm">
-            Dove ti accolgo
-          </motion.span>
-          <motion.h2 variants={fadeInUp} className="text-2xl md:text-4xl lg:text-5xl font-light text-primary-800 mt-2 md:mt-3 mb-4 md:mb-6">
-            Lo spazio terapeutico
-          </motion.h2>
-          <motion.p variants={fadeInUp} className="text-primary-600 leading-relaxed text-sm md:text-base px-2">
-            Ricevo su appuntamento dal lunedì al venerdì in diversi spazi terapeutici, anche all'interno di contesti multidisciplinari in collaborazione con altre figure specialistiche (nutrizionisti, ostetriche, osteopati, psicologi, psicoterapeuti).
-          </motion.p>
-        </div>
-
-        {/* Photo gallery with color accents */}
-        <motion.div variants={fadeInUp} className="my-8 md:my-12">
-          <div className="bg-gradient-to-r from-secondary/10 via-primary/5 to-secondary/10 rounded-3xl md:rounded-[2rem] py-8 md:py-10 px-6 md:px-12 border border-secondary/20">
-            <div className="flex items-center justify-center gap-5 md:gap-8">
-              <div className="relative">
-                <div className="absolute -inset-1.5 bg-secondary/30 rounded-2xl blur-sm" />
-                <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-2xl overflow-hidden border-[3px] border-white shadow-soft" data-testid="gallery-photo-0">
-                  <img src={GALLERY_PHOTOS[0]} alt="Spazio terapeutico" className="w-full h-full object-cover" />
-                </div>
-              </div>
-
-              <div className="relative -mt-3 md:-mt-4">
-                <div className="absolute -inset-2 bg-primary/15 rounded-full blur-sm" />
-                <div className="relative w-32 h-32 md:w-44 md:h-44 rounded-full overflow-hidden border-[3px] border-white shadow-hover" data-testid="gallery-photo-1">
-                  <img src={GALLERY_PHOTOS[1]} alt="Spazio terapeutico" className="w-full h-full object-cover" />
-                </div>
-              </div>
-
-              <div className="relative">
-                <div className="absolute -inset-1.5 bg-secondary/30 rounded-2xl blur-sm" />
-                <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-2xl overflow-hidden border-[3px] border-white shadow-soft" data-testid="gallery-photo-2">
-                  <img src={GALLERY_PHOTOS[2]} alt="Spazio terapeutico" className="w-full h-full object-cover" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        <motion.p variants={fadeInUp} className="text-center text-primary-600 max-w-2xl mx-auto text-sm md:text-base px-2">
-          Sono ambienti <strong className="text-primary">accoglienti e riservati</strong> pensati per garantire un setting sicuro e professionale.
-        </motion.p>
-      </div>
-    </AnimatedSection>
-  );
-};
-
 // Location Card with Image Carousel
 const LocationCard = ({ location, index }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -741,19 +682,26 @@ const LocationCard = ({ location, index }) => {
   );
 };
 
-// Locations Section
+// Locations Section (merged with Spaces)
 const LocationsSection = () => {
   return (
     <AnimatedSection className="section-padding bg-primary-800" id="locations">
       <div className="max-w-7xl mx-auto px-4 md:px-12" data-testid="locations-section">
-        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-6 md:mb-8">
           <motion.span variants={fadeInUp} className="text-secondary font-medium tracking-wide uppercase text-xs md:text-sm">
-            Le sedi
+            Dove ti accolgo
           </motion.span>
           <motion.h2 variants={fadeInUp} className="text-2xl md:text-4xl lg:text-5xl font-light text-white mt-2 md:mt-3 mb-4 md:mb-6">
-            Dove ricevo
+            Lo spazio terapeutico
           </motion.h2>
+          <motion.p variants={fadeInUp} className="text-white/70 leading-relaxed text-sm md:text-base px-2">
+            Ricevo su appuntamento dal lunedì al venerdì in diversi spazi terapeutici, anche all'interno di contesti multidisciplinari in collaborazione con altre figure specialistiche (nutrizionisti, ostetriche, osteopati, psicologi, psicoterapeuti).
+          </motion.p>
         </div>
+
+        <motion.p variants={fadeInUp} className="text-center text-white/50 text-sm mb-8 md:mb-12">
+          Ambienti <strong className="text-secondary">accoglienti e riservati</strong> pensati per garantire un setting sicuro e professionale.
+        </motion.p>
 
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
           {LOCATIONS.map((location, index) => (
@@ -1146,7 +1094,6 @@ const HomePage = () => {
         <MethodSection />
         <AreasSection />
         <ProcessSection />
-        <SpacesSection />
         <LocationsSection />
         <ContactSection />
       </main>
