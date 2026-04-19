@@ -87,10 +87,10 @@ Creare un sito vetrina premium, elegante, rassicurante e altamente professionale
 - [ ] Implementare email notification al submit del form (Resend/SendGrid)
 
 ### P2 (Medium Priority)
-- [ ] Cookie banner GDPR
+- [x] Cookie banner GDPR
+- [x] Schema.org structured data (Psychologist + LocalBusiness)
 - [ ] Pagina grazie dopo invio form
 - [ ] Integrazione Google Analytics
-- [ ] Schema.org markup per local business
 
 ### P3 (Nice to Have)
 - [ ] Blog section
