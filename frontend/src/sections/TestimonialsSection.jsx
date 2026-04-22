@@ -58,7 +58,7 @@ export const TestimonialsSection = () => {
 
         <motion.div variants={fadeInUp} className="max-w-2xl mx-auto">
           {/* Testimonial card */}
-          <div className="relative bg-gradient-to-br from-muted to-secondary/5 rounded-3xl p-8 md:p-12 border border-secondary/15 min-h-[260px] md:min-h-[240px] flex flex-col justify-center">
+          <div className="relative bg-white rounded-3xl p-8 md:p-12 border border-secondary/15 shadow-soft min-h-[260px] md:min-h-[240px] flex flex-col justify-center">
             {/* Decorative quote */}
             <div className="absolute top-5 left-6 md:top-7 md:left-10 font-script text-6xl md:text-7xl text-secondary/25 leading-none select-none">&ldquo;</div>
 
