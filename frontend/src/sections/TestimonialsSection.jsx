@@ -45,7 +45,7 @@ export const TestimonialsSection = () => {
   }, [paginate]);
 
   return (
-    <AnimatedSection className="section-padding bg-white overflow-hidden" id="testimonials">
+    <AnimatedSection className="section-padding bg-muted overflow-hidden" id="testimonials">
       <div className="max-w-7xl mx-auto px-4 md:px-12" data-testid="testimonials-section">
         <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14">
           <motion.span variants={fadeInUp} className="text-secondary-700 font-medium tracking-wide uppercase text-xs md:text-sm">
