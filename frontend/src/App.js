@@ -11,6 +11,7 @@ import { AboutSection } from "@/sections/AboutSection";
 import { MethodSection } from "@/sections/MethodSection";
 import { AreasSection } from "@/sections/AreasSection";
 import { ProcessSection } from "@/sections/ProcessSection";
+import { TestimonialsSection } from "@/sections/TestimonialsSection";
 import { LocationsSection } from "@/sections/LocationsSection";
 import { ContactSection } from "@/sections/ContactSection";
 
@@ -24,6 +25,7 @@ const HomePage = () => {
         <MethodSection />
         <AreasSection />
         <ProcessSection />
+        <TestimonialsSection />
         <LocationsSection />
         <ContactSection />
       </main>

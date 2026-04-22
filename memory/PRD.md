@@ -64,7 +64,10 @@ Creare un sito vetrina premium, elegante, rassicurante e altamente professionale
 - Email: alexandra.ciontu.psi@gmail.com
 - WhatsApp: 3275569910 (senza messaggio precompilato)
 
-### Iterazione 5 - Cookie Banner GDPR + Refactoring (Completato - 19 Apr 2026)
+### Iterazione 6 - Email, Conferma e Testimonianze (Completato - 22 Apr 2026)
+- ✅ **Notifiche email**: Integrazione Resend per inviare email HTML ad Alexandra quando qualcuno compila il modulo di contatto
+- ✅ **Conferma animata**: Card animata con icona check e messaggio "Grazie per avermi contattata!" al posto del form dopo l'invio
+- ✅ **Sezione Testimonianze**: Carousel interattivo con 4 recensioni da GuidaPsicologi, animazioni slide, auto-rotazione, stelle e controlli di navigazione
 - ✅ **Cookie Banner GDPR**: Banner con "Accetta" e "Solo necessari", link privacy policy, animazione fluida, consenso salvato in localStorage
 - ✅ **Refactoring completo App.js**: Da 1 file monolitico (1100+ righe) a 13 file modulari:
   - `/data/constants.js` - Costanti, dati e varianti animazione
