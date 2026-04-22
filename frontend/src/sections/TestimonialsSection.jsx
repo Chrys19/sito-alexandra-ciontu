@@ -49,7 +49,7 @@ export const TestimonialsSection = () => {
       <div className="max-w-7xl mx-auto px-4 md:px-12" data-testid="testimonials-section">
         <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14">
           <motion.span variants={fadeInUp} className="text-secondary-700 font-medium tracking-wide uppercase text-xs md:text-sm">
-            Chi mi ha scelta
+            Chi ci è già passato
           </motion.span>
           <motion.h2 variants={fadeInUp} className="text-2xl md:text-4xl lg:text-5xl font-light text-primary-800 mt-2 md:mt-3 mb-4 md:mb-6">
             Testimonianze
@@ -120,6 +120,19 @@ export const TestimonialsSection = () => {
             >
               <ChevronRight size={18} />
             </button>
+          </div>
+
+          <div className="text-center mt-6">
+            <a
+              href="https://www.guidapsicologi.it/studio/dottssa-alexandra-diana-ciontu"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-testid="testimonials-all-reviews-link"
+              className="inline-flex items-center gap-1.5 text-sm text-primary-500 hover:text-primary font-medium transition-colors"
+            >
+              Vedi tutte le recensioni su GuidaPsicologi
+              <ChevronRight size={14} />
+            </a>
           </div>
         </motion.div>
       </div>
