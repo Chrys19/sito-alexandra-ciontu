@@ -3,12 +3,14 @@ from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
+import asyncio
 import logging
 from pathlib import Path
 from pydantic import BaseModel, Field, ConfigDict, EmailStr
 from typing import List, Optional
 import uuid
 from datetime import datetime, timezone
+import resend
 
 
 ROOT_DIR = Path(__file__).parent
@@ -18,6 +20,11 @@ load_dotenv(ROOT_DIR / '.env')
 mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
+
+# Resend email config
+resend.api_key = os.environ.get('RESEND_API_KEY', '')
+SENDER_EMAIL = os.environ.get('SENDER_EMAIL', 'onboarding@resend.dev')
+NOTIFICATION_EMAIL = os.environ.get('NOTIFICATION_EMAIL', '')
 
 # Create the main app without a prefix
 app = FastAPI(
@@ -91,7 +98,7 @@ async def health_check():
 @api_router.post("/contact", response_model=ContactMessageResponse)
 async def create_contact_message(input_data: ContactMessageCreate):
     """
-    Ricevi un messaggio dal form di contatto
+    Ricevi un messaggio dal form di contatto e invia notifica email
     """
     if not input_data.privacy_accepted:
         raise HTTPException(status_code=400, detail="È necessario accettare la privacy policy")
@@ -104,6 +111,54 @@ async def create_contact_message(input_data: ContactMessageCreate):
     doc['timestamp'] = doc['timestamp'].isoformat()
     
     await db.contact_messages.insert_one(doc)
+    
+    # Send email notification (non-blocking, don't fail if email fails)
+    if NOTIFICATION_EMAIL and resend.api_key:
+        try:
+            html_content = f"""
+            <div style="font-family: Georgia, serif; max-width: 600px; margin: 0 auto; padding: 30px; background: #faf9f7; border-radius: 12px;">
+                <div style="text-align: center; margin-bottom: 24px;">
+                    <h2 style="color: #58355E; margin: 0; font-weight: 400;">Nuovo messaggio dal sito</h2>
+                    <p style="color: #8a7a8e; font-size: 14px; margin-top: 6px;">Modulo di contatto</p>
+                </div>
+                <div style="background: white; padding: 24px; border-radius: 8px; border: 1px solid #e8e4e0;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <tr>
+                            <td style="padding: 10px 0; color: #8a7a8e; font-size: 13px; vertical-align: top; width: 120px;">Nome</td>
+                            <td style="padding: 10px 0; color: #333; font-weight: 500;">{contact_obj.nome}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px 0; color: #8a7a8e; font-size: 13px; vertical-align: top; border-top: 1px solid #f0ede8;">Email</td>
+                            <td style="padding: 10px 0; color: #333; border-top: 1px solid #f0ede8;"><a href="mailto:{contact_obj.email}" style="color: #58355E;">{contact_obj.email}</a></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px 0; color: #8a7a8e; font-size: 13px; vertical-align: top; border-top: 1px solid #f0ede8;">Telefono</td>
+                            <td style="padding: 10px 0; color: #333; border-top: 1px solid #f0ede8;"><a href="tel:{contact_obj.telefono}" style="color: #58355E;">{contact_obj.telefono}</a></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px 0; color: #8a7a8e; font-size: 13px; vertical-align: top; border-top: 1px solid #f0ede8;">Sede</td>
+                            <td style="padding: 10px 0; color: #333; border-top: 1px solid #f0ede8;">{contact_obj.luogo}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px 0; color: #8a7a8e; font-size: 13px; vertical-align: top; border-top: 1px solid #f0ede8;">Messaggio</td>
+                            <td style="padding: 10px 0; color: #333; border-top: 1px solid #f0ede8; line-height: 1.6;">{contact_obj.messaggio}</td>
+                        </tr>
+                    </table>
+                </div>
+                <p style="color: #8a7a8e; font-size: 12px; text-align: center; margin-top: 20px;">
+                    Ricevuto il {contact_obj.timestamp.strftime('%d/%m/%Y alle %H:%M')}
+                </p>
+            </div>
+            """
+            await asyncio.to_thread(resend.Emails.send, {
+                "from": SENDER_EMAIL,
+                "to": [NOTIFICATION_EMAIL],
+                "subject": f"Nuovo contatto: {contact_obj.nome}",
+                "html": html_content,
+            })
+            logger.info(f"Email notification sent for contact: {contact_obj.nome}")
+        except Exception as e:
+            logger.error(f"Failed to send email notification: {str(e)}")
     
     return ContactMessageResponse(
         id=contact_obj.id,
