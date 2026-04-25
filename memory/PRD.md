@@ -76,6 +76,13 @@ Creare un sito vetrina premium, elegante, rassicurante e altamente professionale
   - `App.js` - Solo routing e composizione (~50 righe)
 - ✅ **Bug fix backend**: Campo `luogo` reso opzionale nel modello risposta per compatibilità con record legacy
 
+### Iterazione 7 - Preparazione alla pubblicazione (Completato - 22 Apr 2026)
+- ✅ **Favicon**: Logo ADC come icona browser (ICO + PNG 192/512 + Apple Touch Icon)
+- ✅ **Pagina 404**: Design elegante con 404 in script font e bottone "Torna alla home"
+- ✅ **Sitemap XML**: Homepage + Privacy Policy
+- ✅ **robots.txt**: Indicizzazione consentita, /api/ bloccato
+- ✅ **manifest.json**: PWA-ready con colori e icone del brand
+
 ## Prioritized Backlog
 
 ### P0 (Critical) - COMPLETATO ✅
