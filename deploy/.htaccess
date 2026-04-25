@@ -1,0 +1,13 @@
+# Rewrite per SPA React + API PHP
+RewriteEngine On
+
+# Se il file o la cartella esistono, servili direttamente
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Richieste API -> contact.php
+RewriteRule ^api/contact$ api/contact.php [L,QSA]
+
+# Tutto il resto -> index.html (SPA routing)
+RewriteRule ^ index.html [L]
