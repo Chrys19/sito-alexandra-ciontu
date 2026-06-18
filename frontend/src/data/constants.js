@@ -4,12 +4,12 @@ export const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 export const API = `${BACKEND_URL}/api`;
 
 export const ASSETS = {
-  logo: "https://customer-assets.emergentagent.com/job_equilibrio-psiche/artifacts/ngjyckwn_Logo%20ADC.png",
-  profile: "https://customer-assets.emergentagent.com/job_equilibrio-psiche/artifacts/6hyxzpyx_6621fa4f-17a9-46da-b45e-8b785f81235e.jpg",
-  studioFiumicino: "https://customer-assets.emergentagent.com/job_equilibrio-psiche/artifacts/9shqidqf_fiumicino-canale-2.webp",
-  studioOstiaBono: "https://customer-assets.emergentagent.com/job_equilibrio-psiche/artifacts/176wlws3_ostia-bono-2.webp",
-  studioOstiaSimonetti: "https://customer-assets.emergentagent.com/job_64e90b06-3d7a-462f-8271-6f203a92112d/artifacts/qs5rlx1n_WhatsApp%20Image%202026-04-15%20at%2010.45.47%20%282%29.jpg",
-  studioOstiaSimonetti2: "https://customer-assets.emergentagent.com/job_64e90b06-3d7a-462f-8271-6f203a92112d/artifacts/32xc0ami_WhatsApp%20Image%202026-04-15%20at%2010.45.47.jpg",
+  logo: "/images/logo.png",
+  profile: "/images/profile.jpg",
+  studioFiumicino: "/images/studio-fiumicino.webp",
+  studioOstiaBono: "/images/studio-ostia-bono.webp",
+  studioOstiaSimonetti: "/images/studio-simonetti-1.jpg",
+  studioOstiaSimonetti2: "/images/studio-simonetti-2.jpg",
 };
 
 export const CONTACT = {
@@ -42,8 +42,8 @@ export const LOCATIONS = [
     address: "Viale Ammiraglio del Bono 63, 00122, Ostia",
     maps: "https://maps.google.com/?q=Viale+Ammiraglio+del+Bono+63+00122+Ostia",
     images: [
-      "https://customer-assets.emergentagent.com/job_equilibrio-psiche/artifacts/f0osjcxl_88f3d469-a860-4f87-9e04-ab39920f60a4%202.jpg",
-      "https://customer-assets.emergentagent.com/job_equilibrio-psiche/artifacts/v27xt6dz_ostia-bono-1.jpg",
+      "/images/studio-prinea-1.jpg",
+      "/images/studio-prinea-2.jpg",
     ],
   },
 ];
