@@ -1,9 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<robots>
-  <group>
-    <useragent>*</useragent>
-    <allow>/</allow>
-    <disallow>/api/</disallow>
-  </group>
-  <sitemap>https://dr-ciontu-therapy.preview.emergentagent.com/sitemap.xml</sitemap>
-</robots>
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://alexandraciontu.it/sitemap.xml
