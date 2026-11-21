@@ -20,15 +20,6 @@ export const CONTACT = {
 
 export const LOCATIONS = [
   {
-    name: "Studio Privato - Ostia Simonetti",
-    address: "Via Diego Simonetti 29, 00122, Ostia",
-    maps: "https://maps.google.com/?q=Via+Diego+Simonetti+29+00122+Ostia",
-    images: [
-      ASSETS.studioOstiaSimonetti,
-      ASSETS.studioOstiaSimonetti2,
-    ],
-  },
-  {
     name: "Associazione L'Albero della Vita",
     address: "Via del Canale 18, 00054, Fiumicino",
     maps: "https://maps.google.com/?q=Via+del+Canale+18+00054+Fiumicino",
@@ -38,13 +29,10 @@ export const LOCATIONS = [
     ],
   },
   {
-    name: "Associazione Prinea",
-    address: "Viale Ammiraglio del Bono 63, 00122, Ostia",
-    maps: "https://maps.google.com/?q=Viale+Ammiraglio+del+Bono+63+00122+Ostia",
-    images: [
-      "/images/studio-prinea-1.jpg",
-      "/images/studio-prinea-2.jpg",
-    ],
+    name: "Studio Privato - Ostia",
+    address: "Via del Mare 43, Ostia (portone accanto al parrucchiere)",
+    maps: "https://maps.google.com/?q=Via+del+Mare+43+Ostia",
+    images: [],
   },
 ];
 

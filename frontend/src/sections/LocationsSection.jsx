@@ -16,45 +16,51 @@ const LocationCard = ({ location, index }) => {
       className="bg-white/10 backdrop-blur-sm p-4 md:p-6 lg:p-8 rounded-2xl md:rounded-3xl border border-white/20 hover:bg-white/15 transition-all duration-500"
       data-testid={`location-card-${index}`}
     >
-      <div className="relative aspect-video rounded-xl md:rounded-2xl overflow-hidden mb-4 md:mb-6 group">
-        <img
-          src={location.images[currentImageIndex]}
-          alt={`${location.name} - Foto ${currentImageIndex + 1}`}
-          className="w-full h-full object-cover transition-transform duration-500"
-        />
-        {location.images.length > 1 && (
-          <>
-            <button
-              onClick={prevImage}
-              className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/80 hover:bg-white rounded-full flex items-center justify-center text-primary opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300"
-              data-testid={`location-prev-${index}`}
-              aria-label="Foto precedente"
-            >
-              <ChevronLeft size={18} />
-            </button>
-            <button
-              onClick={nextImage}
-              className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/80 hover:bg-white rounded-full flex items-center justify-center text-primary opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300"
-              data-testid={`location-next-${index}`}
-              aria-label="Foto successiva"
-            >
-              <ChevronRight size={18} />
-            </button>
-            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
-              {location.images.map((_, imgIndex) => (
-                <button
-                  key={imgIndex}
-                  onClick={() => setCurrentImageIndex(imgIndex)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    imgIndex === currentImageIndex ? "bg-white w-4" : "bg-white/50"
-                  }`}
-                  aria-label={`Vai alla foto ${imgIndex + 1}`}
-                />
-              ))}
-            </div>
-          </>
-        )}
-      </div>
+      {location.images.length > 0 ? (
+        <div className="relative aspect-video rounded-xl md:rounded-2xl overflow-hidden mb-4 md:mb-6 group">
+          <img
+            src={location.images[currentImageIndex]}
+            alt={`${location.name} - Foto ${currentImageIndex + 1}`}
+            className="w-full h-full object-cover transition-transform duration-500"
+          />
+          {location.images.length > 1 && (
+            <>
+              <button
+                onClick={prevImage}
+                className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/80 hover:bg-white rounded-full flex items-center justify-center text-primary opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300"
+                data-testid={`location-prev-${index}`}
+                aria-label="Foto precedente"
+              >
+                <ChevronLeft size={18} />
+              </button>
+              <button
+                onClick={nextImage}
+                className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/80 hover:bg-white rounded-full flex items-center justify-center text-primary opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300"
+                data-testid={`location-next-${index}`}
+                aria-label="Foto successiva"
+              >
+                <ChevronRight size={18} />
+              </button>
+              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+                {location.images.map((_, imgIndex) => (
+                  <button
+                    key={imgIndex}
+                    onClick={() => setCurrentImageIndex(imgIndex)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      imgIndex === currentImageIndex ? "bg-white w-4" : "bg-white/50"
+                    }`}
+                    aria-label={`Vai alla foto ${imgIndex + 1}`}
+                  />
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+      ) : (
+        <div className="aspect-video rounded-xl md:rounded-2xl mb-4 md:mb-6 bg-white/5 border border-white/10 flex items-center justify-center">
+          <MapPin size={32} className="text-white/20" />
+        </div>
+      )}
 
       <h3 className="text-base md:text-lg font-medium text-white mb-2">{location.name}</h3>
       <p className="text-white/70 text-xs md:text-sm mb-3 md:mb-4 flex items-start gap-2">
@@ -88,7 +94,7 @@ export const LocationsSection = () => {
             Lo spazio terapeutico
           </motion.h2>
           <motion.p variants={fadeInUp} className="text-white/70 leading-relaxed text-sm md:text-base px-2">
-            Ricevo su appuntamento dal lunedì al venerdì in diversi spazi terapeutici, anche all'interno di contesti multidisciplinari in collaborazione con altre figure specialistiche (nutrizionisti, ostetriche, osteopati, psicologi, psicoterapeuti).
+            Ricevo su appuntamento dal lunedì al venerdì in diversi spazi terapeutici, anche all'interno di contesti multidisciplinari, in centro ad Ostia e Fiumicino.
           </motion.p>
         </div>
 

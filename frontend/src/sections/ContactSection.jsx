@@ -24,9 +24,8 @@ export const ContactSection = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const studioOptions = [
-    { value: "Studio Privato - Ostia Simonetti", label: "Studio Privato - Via Diego Simonetti 29, Ostia" },
     { value: "Associazione L'Albero della Vita - Fiumicino", label: "Associazione L'Albero della Vita - Via del Canale 18, Fiumicino" },
-    { value: "Associazione Prinea - Ostia", label: "Associazione Prinea - Viale Ammiraglio del Bono 63, Ostia" },
+    { value: "Studio Privato - Ostia", label: "Studio Privato - Via del Mare 43, Ostia" },
   ];
 
   const handleSubmit = async (e) => {
